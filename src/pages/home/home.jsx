@@ -34,7 +34,7 @@ function Home() {
       .then((r) => {
         setUrlImage(r.url);
       });
-  }, []);
+  }, [CITY]);
 
   return (
     <React.Fragment>
