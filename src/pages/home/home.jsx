@@ -1,5 +1,17 @@
 import React, { useEffect, useState } from "react";
+import "../../boostrap-icons/font/weathericons-regular-webfont.svg"
+import "../../boostrap-icons/font/weathericons-regular-webfont.eot"
+import "../../boostrap-icons/font/weathericons-regular-webfont.ttf"
+import "../../boostrap-icons/font/weathericons-regular-webfont.woff"
+import "../../boostrap-icons/font/weathericons-regular-webfont.woff2"
+import "../../boostrap-icons/css/weather-icons-wind.css"
+import "../../boostrap-icons/css/weather-icons-wind.min.css"
+import "../../boostrap-icons/css/weather-icons.css"
+import "../../boostrap-icons/css/weather-icons.min.css"       
 import "./index.css";
+                           
+
+
 
 function Home() {
   const KEY = "6ec1b7595153b67cc7506c3c5b5e8f64";
@@ -30,8 +42,9 @@ function Home() {
           });
       });
 
-    fetch("https://source.unsplash.com/category/nature/?shpera") //fetch para obtener la imagen
+    fetch("https://source.unsplash.com/category/nature/?sunset") //fetch para obtener la imagen
       .then((r) => {
+        console.log(r)
         setUrlImage(r.url);
       });
   }, []);
@@ -39,6 +52,7 @@ function Home() {
   return (
     <React.Fragment>
       {urlImage !== "" ? <img className="image" src={urlImage} alt="" /> : ""}
+      <i className="wi wi-day-sunny" ></i>
     </React.Fragment>
   );
 }
