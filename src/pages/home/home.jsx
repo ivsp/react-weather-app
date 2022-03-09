@@ -7,15 +7,16 @@ import "../../boostrap-icons/font/weathericons-regular-webfont.woff2"
 import "../../boostrap-icons/css/weather-icons-wind.css"
 import "../../boostrap-icons/css/weather-icons-wind.min.css"
 import "../../boostrap-icons/css/weather-icons.css"
-import "../../boostrap-icons/css/weather-icons.min.css"       
+import "../../boostrap-icons/css/weather-icons.min.css"
 import "./index.css";
-                           
+import Filter from "../../components/filter/filter";
+
 
 
 
 function Home() {
   const KEY = "6ec1b7595153b67cc7506c3c5b5e8f64";
-  const CITY = "Hervas";
+  const [CITY, updateCities] = useState("")
 
   const [latitude, setLatitude] = useState("");
   const [longitude, setLongitude] = useState("");
@@ -47,10 +48,19 @@ function Home() {
         console.log(r)
         setUrlImage(r.url);
       });
-  }, []);
+  }, [CITY]);
+
+  const handlerOnsubmit = e => {
+    e.preventDefault()
+    const cityFilter = e.target.country.value.toLowerCase()  
+    updateCities(cityFilter)
+    console.log(CITY)
+
+  }
 
   return (
     <React.Fragment>
+      <Filter onSubmit={handlerOnsubmit} ></Filter> 
       {urlImage !== "" ? <img className="image" src={urlImage} alt="" /> : ""}
       <i className="wi wi-day-sunny" ></i>
     </React.Fragment>
