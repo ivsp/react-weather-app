@@ -9,12 +9,14 @@ import { ReactComponent as Sunny } from "../../weather-icons/sunny.svg";
 import { ReactComponent as Clearnight } from "../../weather-icons/clearnight.svg";
 import { ReactComponent as Sunnywind } from "../../weather-icons/sunny.wind.svg";
 import { ReactComponent as Snowy } from "../../weather-icons/snowy.svg";
+import "./index.css";
+import Filter from "../../components/filter/filter";
 
 import "./index.css";
 
 function Home() {
   const KEY = "6ec1b7595153b67cc7506c3c5b5e8f64";
-  const CITY = "Hervas";
+  const [CITY, updateCities] = useState("");
 
   const [latitude, setLatitude] = useState("");
   const [longitude, setLongitude] = useState("");
@@ -81,9 +83,18 @@ function Home() {
     }
   };
 
+  const handlerOnsubmit = (e) => {
+    e.preventDefault();
+    const cityFilter = e.target.country.value.toLowerCase();
+    updateCities(cityFilter);
+    console.log(CITY);
+  };
+
   return (
     <React.Fragment>
       <section className="container">
+        <Filter onSubmit={handlerOnsubmit}></Filter>
+
         <button onClick={onPrevious}>PREV</button>
 
         {urlImages[0] !== "" ? (
