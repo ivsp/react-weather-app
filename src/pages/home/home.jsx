@@ -16,8 +16,10 @@ import Filter from "../../components/filter/filter";
 import "./index.css";
 import BootstrapCarousel from "../../components/BootstrapCarousel/bootstrapCarousel";
 
+import WeatherCard from "../../components/weather-card/weather-card";
+
 function Home() {
-  const KEY = "6ec1b7595153b67cc7506c3c5b5e8f64";
+  const KEY = "8e70202785880756e6fd030a4675871d";
   const [CITY, updateCities] = useState("");
 
   const [latitude, setLatitude] = useState("");
@@ -26,23 +28,27 @@ function Home() {
   const [urlImages, setUrlImages] = useState([]);
   const [keyWords, setKeyWords] = useState(["sunset", "portrait", "macro"]);
   const [counter, setCounter] = useState(0);
+  const [temperature, setTemperature] = useState("")
 
   useEffect(() => {
-    // fetch(
-    //   `http://api.openweathermap.org/geo/1.0/direct?q=${CITY}&limit=1&appid=${KEY}`
-    // )
-    //   .then((r) => r.json())
-    //   .then((location) => {
-    //     setLatitude(location[0].lat);
-    //     setLongitude(location[0].lon);
-    //     fetch(
-    //       `http://api.openweathermap.org/data/2.5/weather?lat=${location[0].lat}&lon=${location[0].lon}&appid=${KEY}`
-    //     )
-    //       .then((r) => r.json())
-    //       .then((data) => {
-    //         setWeatherData(data);
-    //       });
-    //   });
+     fetch(
+       `http://api.openweathermap.org/geo/1.0/direct?q=${CITY}&limit=1&appid=${KEY}`
+     )
+     
+       .then((r) => r.json())
+      .then((location) => {
+         setLatitude(location[0].lat);
+         setLongitude(location[0].lon);
+         fetch(
+           `http://api.openweathermap.org/data/2.5/weather?lat=${location[0].lat}&lon=${location[0].lon}&appid=${KEY}`
+        )
+          .then((r) => r.json())
+          .then((data) => {
+             setWeatherData(data);
+             setTemperature(Math.round(data.main.temp-273.15) ) 
+             console.log(data)
+          });
+       });
 
     function generateRequest(i) {
       return new Promise((resolve, rejected) => {
@@ -98,9 +104,27 @@ function Home() {
     console.log(CITY);
   };
 
+  // Parte de Cris para traer info del map:
+
+  /*const celsiusDeg = Math.round(weatherData.main.temp-273.15) */  
+
+
+  /*const sunrise = new Date(weatherData.sys.sunrise*1000)
+  const sunriseHour = `${sunrise.getHours()}:${sunrise.getMinutes()}:${sunrise.getSeconds()}` 
+  
+
+  const sunset = new Date(weatherData.sys.sunset*1000).getTimezoneOffset()
+  const sunsetHour = `${sunset.getHours()}:${sunset.getMinutes()}:${sunset.getSeconds()}`  */ 
+
   return (
     <React.Fragment>
       <Filter onSubmit={handlerOnsubmit}></Filter>
+      <WeatherCard 
+      degrees={weatherData.main?.temp?Math.round(weatherData.main.temp-273.15):""} 
+     /*  sunrise={sunriseHour}
+      sunset={sunsetHour}  */
+ 
+      ></WeatherCard>
       {/* <section className="container">
        
 
