@@ -9,10 +9,12 @@ import { ReactComponent as Sunny } from "../../weather-icons/sunny.svg";
 import { ReactComponent as Clearnight } from "../../weather-icons/clearnight.svg";
 import { ReactComponent as Sunnywind } from "../../weather-icons/sunny.wind.svg";
 import { ReactComponent as Snowy } from "../../weather-icons/snowy.svg";
+
 import "./index.css";
 import Filter from "../../components/filter/filter";
 
 import "./index.css";
+import BootstrapCarousel from "../../components/BootstrapCarousel/bootstrapCarousel";
 
 function Home() {
   const KEY = "6ec1b7595153b67cc7506c3c5b5e8f64";
@@ -54,34 +56,27 @@ function Home() {
 
   function onNext() {
     console.log("dentro del onNext");
-    console.log(urlImages);
-
-    // console.log(urlImage);
-    console.log(counter);
-    if (counter < 4) {
-      if (urlImages.length < 4) {
-        fetch(
-          `https://source.unsplash.com/category/nature/800x600/?${keyWords[0]},${keyWords[1]},${keyWords[2]}`
-        ) //fetch para obtener la imagen
-          .then((r) => {
-            console.log(r);
-            urlImages.push(r.url);
-            setUrlImages([...urlImages]);
-          });
-      }
-      setCounter(counter + 1);
-    } else {
-      setCounter(0);
-    }
+    if (urlImages.length < 4) {
+      fetch(
+        `https://source.unsplash.com/category/nature/800x600/?${keyWords[0]},${keyWords[1]},${keyWords[2]}`
+      ) //fetch para obtener la imagen
+        .then((r) => {
+          urlImages.push(r.url);
+          setUrlImages([...urlImages]);
+        });
+    } //no haria falta el counter ni el else
+    //  else {
+    //   setCounter(0);
+    // }
   }
-
-  const onPrevious = () => {
-    if (counter !== 0) {
-      setCounter(counter - 1);
-      console.log(counter);
-      // console.log(urlImage);
-    }
-  };
+  //Creo que no hace falta con el carrousel
+  // const onPrevious = () => {
+  //   if (counter !== 0) {
+  //     setCounter(counter - 1);
+  //     console.log(counter);
+  //     // console.log(urlImage);
+  //   }
+  // };
 
   const handlerOnsubmit = (e) => {
     e.preventDefault();
@@ -92,8 +87,9 @@ function Home() {
 
   return (
     <React.Fragment>
-      <section className="container">
-        <Filter onSubmit={handlerOnsubmit}></Filter>
+      <Filter onSubmit={handlerOnsubmit}></Filter>
+      {/* <section className="container">
+       
 
         <button onClick={onPrevious}>PREV</button>
 
@@ -104,7 +100,8 @@ function Home() {
         )}
         {counter === 3 ? "" : <button onClick={onNext}>NEXT</button>}
         <i className="wi wi-day-sunny"></i>
-        {/* <Cloudy></Cloudy>
+        </section> */}
+      {/* <Cloudy></Cloudy>
         <Rainy></Rainy>
         <Cloudysun></Cloudysun>
         <Cloudylighting></Cloudylighting>
@@ -114,7 +111,8 @@ function Home() {
         <Clearnight></Clearnight>
         <Sunnywind></Sunnywind>
         <Snowy></Snowy> */}
-      </section>
+
+      <BootstrapCarousel urls={urlImages} onNext={onNext}></BootstrapCarousel>
     </React.Fragment>
   );
 }
