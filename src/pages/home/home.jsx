@@ -44,14 +44,27 @@ function Home() {
     //       });
     //   });
 
-    fetch(
-      `https://source.unsplash.com/category/nature/800x600/?${keyWords[0]},${keyWords[1]},${keyWords[2]}`
-    ).then((r) => {
-      console.log(r);
-      urlImages.push(r.url);
-      setUrlImages([...urlImages]);
-      console.log(urlImages);
-    });
+    function generateRequest(i) {
+      return new Promise((resolve, rejected) => {
+        setTimeout(async () => {
+          const r = await fetch(
+            `https://source.unsplash.com/category/nature/800x600/?${keyWords[0]},${keyWords[1]},${keyWords[2]}`
+          );
+          console.log(r.url);
+          urlImages.push(r.url);
+          setUrlImages([...urlImages]);
+          resolve(r);
+        }, i * 1500);
+      });
+    }
+    async function getUrlPicture() {
+      await Promise.allSettled(
+        Array(4)
+          .fill(null)
+          .map((v, i) => generateRequest(i))
+      );
+    }
+    getUrlPicture();
   }, [CITY]);
 
   function onNext() {
