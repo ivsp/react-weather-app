@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import * as XLSX from "../../../node_modules/xlsx/xlsx.mjs";
+// import * as XLSX from "../../../node_modules/xlsx/xlsx.mjs";
 
 /* load 'fs' for readFile and writeFile support */
 import { ReactComponent as Cloudy } from "../../weather-icons/cloudy.svg";
