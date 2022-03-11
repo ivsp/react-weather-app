@@ -18,9 +18,16 @@ import "./index.css";
 import BootstrapCarousel from "../../components/BootstrapCarousel/bootstrapCarousel";
 
 
+import WeatherCard from "../../components/weather-card/weather-card";
+import Card from "react-bootstrap/Card";
+
+function Home() {
+
+
   const KEY = "8e70202785880756e6fd030a4675871d";
   const [CITY, updateCities] = useState("")
   //const KEY = "6ec1b7595153b67cc7506c3c5b5e8f64";
+
 
 
   const [latitude, setLatitude] = useState("");
@@ -30,7 +37,10 @@ import BootstrapCarousel from "../../components/BootstrapCarousel/bootstrapCarou
   const [keyWords, setKeyWords] = useState(["sunset", "portrait", "macro"]);
   const [counter, setCounter] = useState(0);
 
+  const [forecastData, setForecastData] = useState([])
+
   useEffect(() => {
+
 
 
     function Geolat() { 
@@ -74,7 +84,17 @@ import BootstrapCarousel from "../../components/BootstrapCarousel/bootstrapCarou
             setWeatherData(data);
           });
       });
+    fetch(
+          `http://api.openweathermap.org/data/2.5/onecall?lat=${location[0].lat}&lon=${location[0].lon}&units=metric&appid=${KEY}`
+        )
+          .then((r) => r.json())
+          .then((data) => {
+            setForecastData(data);
 
+            console.log(data)
+
+          });
+      });
 
 
 
@@ -115,7 +135,7 @@ import BootstrapCarousel from "../../components/BootstrapCarousel/bootstrapCarou
     }
     async function getUrlPicture() {
       await Promise.allSettled(
-        Array(4)
+        Array(1)
           .fill(null)
           .map((v, i) => generateRequest(i))
       );
@@ -165,9 +185,7 @@ import BootstrapCarousel from "../../components/BootstrapCarousel/bootstrapCarou
     console.log(CITY);
   };
 
-
-  // recibir oordenadas de geolocalizacion pulsando el boton hecho por hector
-
+    // recibir oordenadas de geolocalizacion pulsando el boton hecho por hector
   const handlerOnclick = e => {
     e.preventDefault()
     const Geo = navigator.geolocation.getCurrentPosition(geolocation => {
@@ -179,12 +197,41 @@ import BootstrapCarousel from "../../components/BootstrapCarousel/bootstrapCarou
     });
   }
 
+
+
+  const getSunriseHour = new Date((weatherData.sys?.sunrise + weatherData.timezone) * 1000)
+  const sunriseHour = `${getSunriseHour.getHours()}:${getSunriseHour.getMinutes()}`
+
+
+  const getSunsetHour = new Date((weatherData.sys?.sunset + weatherData.timezone) * 1000)
+  const sunsetHour = `${getSunsetHour.getHours()}:${getSunsetHour.getMinutes()}`
+
+  
+
+
+
   return (
     <React.Fragment>
 
       <Filter onSubmit={handlerOnsubmit} ></Filter>
       <MyGeolocation onClick={handlerOnclick}></MyGeolocation>
       <p>{weatherData.name?weatherData.name:""}</p>
+        <WeatherCard
+        degrees={weatherData.main?.temp ? Math.round(weatherData.main.temp) : ""}
+        sunrise={weatherData.sys?.sunrise ? sunriseHour : ""}
+        sunset={weatherData.sys?.sunset ? sunsetHour : ""}
+        weather={weatherData.weather?.[0]?.main ? weatherData.weather[0].main : ""}
+        forecast = {forecastData.daily ? forecastData.daily?.map((c, i) =>
+          <Card style={{ width: '120px' }}>
+             
+            <Card.Text>     
+            <Cloudysun></Cloudysun> 
+              {c.temp?.day}º
+            </Card.Text>
+  
+          </Card>) : ""}
+      >
+      </WeatherCard>
       {urlImage !== "" ? <img className="image" src={urlImage} alt="" /> : ""}
       <i className="wi wi-day-sunny" ></i>
      {/* <Cloudy></Cloudy>
