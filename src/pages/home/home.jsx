@@ -1,4 +1,7 @@
 import React, { useEffect, useState } from "react";
+import * as XLSX from "../../../node_modules/xlsx/xlsx.mjs";
+
+/* load 'fs' for readFile and writeFile support */
 import { ReactComponent as Cloudy } from "../../weather-icons/cloudy.svg";
 import { ReactComponent as Rainy } from "../../weather-icons/rainy.svg";
 import { ReactComponent as Cloudysun } from "../../weather-icons/cloudy.sun.svg";
@@ -27,6 +30,29 @@ function Home() {
   const [keyWords, setKeyWords] = useState(["sunset", "portrait", "macro"]);
   const [counter, setCounter] = useState(0);
 
+  function generateRequest(i) {
+    return new Promise((resolve, rejected) => {
+      setTimeout(async () => {
+        const r = await fetch(
+          `https://source.unsplash.com/category/nature/800x600/?${keyWords[0]},${keyWords[1]},${keyWords[2]}`
+        );
+        console.log(r);
+        console.log(r.url);
+        urlImages.push(r.url);
+        setUrlImages([...urlImages]);
+        resolve(r);
+      }, i * 1500);
+    });
+  }
+  async function getUrlPicture() {
+    const r = await Promise.allSettled(
+      Array(4)
+        .fill(null)
+        .map((v, i) => generateRequest(i))
+    );
+    console.log(r);
+  }
+
   useEffect(() => {
     // fetch(
     //   `http://api.openweathermap.org/geo/1.0/direct?q=${CITY}&limit=1&appid=${KEY}`
@@ -44,27 +70,39 @@ function Home() {
     //       });
     //   });
 
-    function generateRequest(i) {
-      return new Promise((resolve, rejected) => {
-        setTimeout(async () => {
-          const r = await fetch(
-            `https://source.unsplash.com/category/nature/800x600/?${keyWords[0]},${keyWords[1]},${keyWords[2]}`
-          );
-          console.log(r.url);
-          urlImages.push(r.url);
-          setUrlImages([...urlImages]);
-          resolve(r);
-        }, i * 1500);
-      });
-    }
-    async function getUrlPicture() {
-      await Promise.allSettled(
-        Array(4)
-          .fill(null)
-          .map((v, i) => generateRequest(i))
-      );
-    }
     getUrlPicture();
+    fetch("../../data/dataweather.xlsx")
+      .then((res) => {
+        console.log(res);
+        return res.arrayBuffer();
+      })
+      .then((res) => {
+        console.log(res);
+        console.log("file:", res);
+        // const reader = new FileReader();
+        // reader.readAsArrayBuffer(res);
+        const workbook = XLSX.read(new Uint8Array(res), {
+          type: "buffer",
+        });
+        const worksheetNAme = workbook.SheetNames[0];
+        const worksheet = workbook.Sheets[worksheetNAme];
+        const data = XLSX.utils.sheet_to_json(worksheet);
+        console.log(workbook);
+        console.log(worksheetNAme);
+        console.log(worksheet);
+        console.log(data);
+      });
+    // async function getXLSData() {
+    //   const b64 = await FileSystem.readFile(
+    //     "../../data/Weather UX _ Fullstack.xlsx",
+    //     "base64"
+    //   );
+    //   const workbook = XLSX.read(b64, { type: "base64" });
+
+    //   return workbook;
+    // }
+    // getXLSData();
+    /* b64 is a base64 string */
   }, [CITY]);
 
   function onNext() {
