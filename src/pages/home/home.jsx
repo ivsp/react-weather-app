@@ -12,16 +12,23 @@ import { ReactComponent as Snowy } from "../../weather-icons/snowy.svg";
 
 import "./index.css";
 import Filter from "../../components/filter/filter";
+import MyGeolocation from "../../components/geolocation/geolocation";
 
 import "./index.css";
 import BootstrapCarousel from "../../components/BootstrapCarousel/bootstrapCarousel";
+
 
 import WeatherCard from "../../components/weather-card/weather-card";
 import Card from "react-bootstrap/Card";
 
 function Home() {
+
+
   const KEY = "8e70202785880756e6fd030a4675871d";
-  const [CITY, updateCities] = useState("Madrid");
+  const [CITY, updateCities] = useState("")
+  //const KEY = "6ec1b7595153b67cc7506c3c5b5e8f64";
+
+
 
   const [latitude, setLatitude] = useState("");
   const [longitude, setLongitude] = useState("");
@@ -33,24 +40,51 @@ function Home() {
   const [forecastData, setForecastData] = useState([])
 
   useEffect(() => {
+
+
+
+    function Geolat() { 
+      navigator.geolocation.getCurrentPosition(geolocation => {
+        console.log(typeof geolocation.coords.latitude.toString());
+      setLatitude(geolocation.coords.latitude.toString());
+      setLongitude(geolocation.coords.longitude.toString())
+      fetch(
+        `http://api.openweathermap.org/data/2.5/weather?lat=${geolocation.coords.latitude.toString()}&lon=${geolocation.coords.longitude.toString()}&appid=${KEY}`
+      )
+        .then((r) => r.json())
+        .then((data) => {
+          console.log(data.name);
+          setWeatherData(data);
+        });
+      
+
+    });
+  }
+
+    Geolat()
+
+    
+    
+
     fetch(
       `http://api.openweathermap.org/geo/1.0/direct?q=${CITY}&limit=1&appid=${KEY}`
     )
-
       .then((r) => r.json())
       .then((location) => {
+        console.log(location);
         setLatitude(location[0].lat);
         setLongitude(location[0].lon);
+        console.log(location[0].name);
         fetch(
-          `http://api.openweathermap.org/data/2.5/weather?lat=${location[0].lat}&lon=${location[0].lon}&units=metric&appid=${KEY}`
+          `http://api.openweathermap.org/data/2.5/weather?lat=${location[0].lat}&lon=${location[0].lon}&appid=${KEY}`
         )
           .then((r) => r.json())
           .then((data) => {
+            console.log(data);
             setWeatherData(data);
-            /* setTemperature(...Math.round(data.main.temp) )  */
-            console.log(data)
           });
-        fetch(
+      });
+    fetch(
           `http://api.openweathermap.org/data/2.5/onecall?lat=${location[0].lat}&lon=${location[0].lon}&units=metric&appid=${KEY}`
         )
           .then((r) => r.json())
@@ -61,6 +95,29 @@ function Home() {
 
           });
       });
+
+
+
+    fetch("https://source.unsplash.com/category/nature/?sunset") //fetch para obtener la imagen
+      .then((r) => {
+        console.log(r)
+        setUrlImage(r.url);
+
+    // fetch(
+    //   `http://api.openweathermap.org/geo/1.0/direct?q=${CITY}&limit=1&appid=${KEY}`
+    // )
+    //   .then((r) => r.json())
+    //   .then((location) => {
+    //     setLatitude(location[0].lat);
+    //     setLongitude(location[0].lon);
+    //     fetch(
+    //       `http://api.openweathermap.org/data/2.5/weather?lat=${location[0].lat}&lon=${location[0].lon}&appid=${KEY}`
+    //     )
+    //       .then((r) => r.json())
+    //       .then((data) => {
+    //         setWeatherData(data);
+    //       });
+    //   });
 
     function generateRequest(i) {
       return new Promise((resolve, rejected) => {
@@ -73,6 +130,7 @@ function Home() {
           setUrlImages([...urlImages]);
           resolve(r);
         }, i * 1500);
+
       });
     }
     async function getUrlPicture() {
@@ -84,6 +142,16 @@ function Home() {
     }
     getUrlPicture();
   }, [CITY]);
+
+
+
+
+  const handlerOnsubmit = e => {
+    e.preventDefault()
+    const cityFilter = e.target.country.value.toLowerCase()
+    updateCities(cityFilter)
+    console.log(CITY)
+
 
   function onNext() {
     console.log("dentro del onNext");
@@ -99,6 +167,7 @@ function Home() {
     //  else {
     //   setCounter(0);
     // }
+
   }
   //Creo que no hace falta con el carrousel
   // const onPrevious = () => {
@@ -116,6 +185,18 @@ function Home() {
     console.log(CITY);
   };
 
+    // recibir oordenadas de geolocalizacion pulsando el boton hecho por hector
+  const handlerOnclick = e => {
+    e.preventDefault()
+    const Geo = navigator.geolocation.getCurrentPosition(geolocation => {
+      // en el objeto geolocation.coords se encuentran mis coordenadas
+      const lat = geolocation.coords.latitude;
+      const lon = geolocation.coords.longitude;
+      console.log(lat)
+      console.log(lon)
+    });
+  }
+
 
 
   const getSunriseHour = new Date((weatherData.sys?.sunrise + weatherData.timezone) * 1000)
@@ -125,10 +206,17 @@ function Home() {
   const getSunsetHour = new Date((weatherData.sys?.sunset + weatherData.timezone) * 1000)
   const sunsetHour = `${getSunsetHour.getHours()}:${getSunsetHour.getMinutes()}`
 
+  
+
+
+
   return (
     <React.Fragment>
-      <Filter onSubmit={handlerOnsubmit}></Filter>
-      <WeatherCard
+
+      <Filter onSubmit={handlerOnsubmit} ></Filter>
+      <MyGeolocation onClick={handlerOnclick}></MyGeolocation>
+      <p>{weatherData.name?weatherData.name:""}</p>
+        <WeatherCard
         degrees={weatherData.main?.temp ? Math.round(weatherData.main.temp) : ""}
         sunrise={weatherData.sys?.sunrise ? sunriseHour : ""}
         sunset={weatherData.sys?.sunset ? sunsetHour : ""}
@@ -144,23 +232,9 @@ function Home() {
           </Card>) : ""}
       >
       </WeatherCard>
-     
-
-
-      {/* <section className="container">
-       
-
-        <button onClick={onPrevious}>PREV</button>
-
-        {urlImages[0] !== "" ? (
-          <img className="image" src={urlImages[counter]} alt="" />
-        ) : (
-          ""
-        )}
-        {counter === 3 ? "" : <button onClick={onNext}>NEXT</button>}
-        <i className="wi wi-day-sunny"></i>
-        </section> */}
-      {/* <Cloudy></Cloudy>
+      {urlImage !== "" ? <img className="image" src={urlImage} alt="" /> : ""}
+      <i className="wi wi-day-sunny" ></i>
+     {/* <Cloudy></Cloudy>
         <Rainy></Rainy>
         <Cloudysun></Cloudysun>
         <Cloudylighting></Cloudylighting>
@@ -172,6 +246,7 @@ function Home() {
         <Snowy></Snowy> */}
 
       <BootstrapCarousel urls={urlImages} onNext={onNext}></BootstrapCarousel>
+
     </React.Fragment>
   );
 }
