@@ -1,5 +1,6 @@
 import React from 'react';
 import Card from 'react-bootstrap/Card'
+import { ReactComponent as Cloudy } from "../../weather-icons/cloudy.svg";
 
 
 function WeatherCard(props) {
@@ -14,10 +15,14 @@ function WeatherCard(props) {
                         <p>{props.degrees}º</p>
                         <p>hora del amanecer: {props.sunrise}</p>
                         <p>hora del atardecer: {props.sunset}</p>
+                        <p>{props.weather}</p>
+                        <Cloudy />
                     </Card.Text>
 
                 </Card.Body>
             </Card>
+
+            {props.forecast}
             
         </React.Fragment>
     )

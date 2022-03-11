@@ -17,10 +17,11 @@ import "./index.css";
 import BootstrapCarousel from "../../components/BootstrapCarousel/bootstrapCarousel";
 
 import WeatherCard from "../../components/weather-card/weather-card";
+import Card from "react-bootstrap/Card";
 
 function Home() {
   const KEY = "8e70202785880756e6fd030a4675871d";
-  const [CITY, updateCities] = useState("");
+  const [CITY, updateCities] = useState("Madrid");
 
   const [latitude, setLatitude] = useState("");
   const [longitude, setLongitude] = useState("");
@@ -28,27 +29,38 @@ function Home() {
   const [urlImages, setUrlImages] = useState([]);
   const [keyWords, setKeyWords] = useState(["sunset", "portrait", "macro"]);
   const [counter, setCounter] = useState(0);
-  const [temperature, setTemperature] = useState("")
+
+  const [forecastData, setForecastData] = useState([])
 
   useEffect(() => {
-     fetch(
-       `http://api.openweathermap.org/geo/1.0/direct?q=${CITY}&limit=1&appid=${KEY}`
-     )
-     
-       .then((r) => r.json())
+    fetch(
+      `http://api.openweathermap.org/geo/1.0/direct?q=${CITY}&limit=1&appid=${KEY}`
+    )
+
+      .then((r) => r.json())
       .then((location) => {
-         setLatitude(location[0].lat);
-         setLongitude(location[0].lon);
-         fetch(
-           `http://api.openweathermap.org/data/2.5/weather?lat=${location[0].lat}&lon=${location[0].lon}&appid=${KEY}`
+        setLatitude(location[0].lat);
+        setLongitude(location[0].lon);
+        fetch(
+          `http://api.openweathermap.org/data/2.5/weather?lat=${location[0].lat}&lon=${location[0].lon}&units=metric&appid=${KEY}`
         )
           .then((r) => r.json())
           .then((data) => {
-             setWeatherData(data);
-             setTemperature(Math.round(data.main.temp-273.15) ) 
-             console.log(data)
+            setWeatherData(data);
+            /* setTemperature(...Math.round(data.main.temp) )  */
+            console.log(data)
           });
-       });
+        fetch(
+          `http://api.openweathermap.org/data/2.5/onecall?lat=${location[0].lat}&lon=${location[0].lon}&units=metric&appid=${KEY}`
+        )
+          .then((r) => r.json())
+          .then((data) => {
+            setForecastData(data);
+
+            console.log(data)
+
+          });
+      });
 
     function generateRequest(i) {
       return new Promise((resolve, rejected) => {
@@ -65,7 +77,7 @@ function Home() {
     }
     async function getUrlPicture() {
       await Promise.allSettled(
-        Array(4)
+        Array(1)
           .fill(null)
           .map((v, i) => generateRequest(i))
       );
@@ -104,27 +116,37 @@ function Home() {
     console.log(CITY);
   };
 
-  // Parte de Cris para traer info del map:
-
-  /*const celsiusDeg = Math.round(weatherData.main.temp-273.15) */  
 
 
-  /*const sunrise = new Date(weatherData.sys.sunrise*1000)
-  const sunriseHour = `${sunrise.getHours()}:${sunrise.getMinutes()}:${sunrise.getSeconds()}` 
-  
+  const getSunriseHour = new Date((weatherData.sys?.sunrise + weatherData.timezone) * 1000)
+  const sunriseHour = `${getSunriseHour.getHours()}:${getSunriseHour.getMinutes()}`
 
-  const sunset = new Date(weatherData.sys.sunset*1000).getTimezoneOffset()
-  const sunsetHour = `${sunset.getHours()}:${sunset.getMinutes()}:${sunset.getSeconds()}`  */ 
+
+  const getSunsetHour = new Date((weatherData.sys?.sunset + weatherData.timezone) * 1000)
+  const sunsetHour = `${getSunsetHour.getHours()}:${getSunsetHour.getMinutes()}`
 
   return (
     <React.Fragment>
       <Filter onSubmit={handlerOnsubmit}></Filter>
-      <WeatherCard 
-      degrees={weatherData.main?.temp?Math.round(weatherData.main.temp-273.15):""} 
-     /*  sunrise={sunriseHour}
-      sunset={sunsetHour}  */
- 
-      ></WeatherCard>
+      <WeatherCard
+        degrees={weatherData.main?.temp ? Math.round(weatherData.main.temp) : ""}
+        sunrise={weatherData.sys?.sunrise ? sunriseHour : ""}
+        sunset={weatherData.sys?.sunset ? sunsetHour : ""}
+        weather={weatherData.weather?.[0]?.main ? weatherData.weather[0].main : ""}
+        forecast = {forecastData.daily ? forecastData.daily?.map((c, i) =>
+          <Card style={{ width: '120px' }}>
+             
+            <Card.Text>     
+            <Cloudysun></Cloudysun> 
+              {c.temp?.day}º
+            </Card.Text>
+  
+          </Card>) : ""}
+      >
+      </WeatherCard>
+     
+
+
       {/* <section className="container">
        
 
