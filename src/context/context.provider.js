@@ -7,7 +7,8 @@ function DataContextProvider({ children }) {
   const [city, setCity] = useState("");
   const [weatherData, setWeatherData] = useState([]);
   const [camParameters, setCamParameters] = useState([]);
-  const [keyWords, setKeyWords] = useState([]);
+  const [keyWord1, setKeyWord1] = useState("");
+  const [keyWord2, setKeyWord2] = useState("");
 
   return (
     <DataContext.Provider
@@ -22,8 +23,10 @@ function DataContextProvider({ children }) {
         setWeatherData,
         camParameters,
         setCamParameters,
-        keyWords,
-        setKeyWords,
+        keyWord1,
+        setKeyWord1,
+        keyWord2,
+        setKeyWord2,
       ]}
     >
       {children}

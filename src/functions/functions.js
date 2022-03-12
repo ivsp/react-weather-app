@@ -35,9 +35,11 @@ export function geolat(
           const arr = [];
           camParams.hora[hour].nubes[0][0].keyWord.split("/").map((k) => {
             console.log("en el 0");
+            console.log(k);
             arr.push(k);
-            return setKeyWords(arr);
           });
+          console.log(arr);
+          setKeyWords(arr);
 
           console.log(arr);
         } else if (data.clouds.all > 25 && data.clouds.all <= 50) {
