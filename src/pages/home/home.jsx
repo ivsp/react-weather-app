@@ -2,20 +2,20 @@ import React, { useEffect, useState } from "react";
 // import * as XLSX from "../../../node_modules/xlsx/xlsx.mjs";
 
 /* load 'fs' for readFile and writeFile support */
-import { ReactComponent as Cloudy } from "../../weather-icons/cloudy.svg";
-import { ReactComponent as Rainy } from "../../weather-icons/rainy.svg";
+// import { ReactComponent as Cloudy } from "../../weather-icons/cloudy.svg";
+// import { ReactComponent as Rainy } from "../../weather-icons/rainy.svg";
 import { ReactComponent as Cloudysun } from "../../weather-icons/cloudy.sun.svg";
-import { ReactComponent as Cloudymoon } from "../../weather-icons/cloudymoon.svg";
-import { ReactComponent as Cloudylighting } from "../../weather-icons/cloudy.lightning.svg";
-import { ReactComponent as Cloudyrainlighting } from "../../weather-icons/cloudy.rain.lightning.svg";
-import { ReactComponent as Sunny } from "../../weather-icons/sunny.svg";
-import { ReactComponent as Clearnight } from "../../weather-icons/clearnight.svg";
-import { ReactComponent as Sunnywind } from "../../weather-icons/sunny.wind.svg";
-import { ReactComponent as Snowy } from "../../weather-icons/snowy.svg";
+// import { ReactComponent as Cloudymoon } from "../../weather-icons/cloudymoon.svg";
+// import { ReactComponent as Cloudylighting } from "../../weather-icons/cloudy.lightning.svg";
+// import { ReactComponent as Cloudyrainlighting } from "../../weather-icons/cloudy.rain.lightning.svg";
+// import { ReactComponent as Sunny } from "../../weather-icons/sunny.svg";
+// import { ReactComponent as Clearnight } from "../../weather-icons/clearnight.svg";
+// import { ReactComponent as Sunnywind } from "../../weather-icons/sunny.wind.svg";
+// import { ReactComponent as Snowy } from "../../weather-icons/snowy.svg";
 
 import "./index.css";
 import Filter from "../../components/filter/filter";
-import MyGeolocation from "../../components/geolocation/geolocation";
+// import MyGeolocation from "../../components/geolocation/geolocation";
 
 import "./index.css";
 import BootstrapCarousel from "../../components/BootstrapCarousel/bootstrapCarousel";

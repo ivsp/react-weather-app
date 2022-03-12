@@ -1,10 +1,18 @@
-import "./App.css";
-import "bootstrap/dist/css/bootstrap.min.css";
+import './App.scss';
+import "./custom.scss";
 
 import Home from "./pages/home/home";
+// import Header from "./components/header/header";
+import React from "react";
 
 function App() {
-  return <Home></Home>;
+  return(
+
+  <React.Fragment>
+  {/* <Header></Header> */}
+  <Home></Home>
+  </React.Fragment>
+  )
 }
 
 export default App;
