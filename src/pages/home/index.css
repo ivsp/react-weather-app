@@ -1,4 +1,11 @@
-
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+.padding0{
+    padding: 0px;
+}
 .container{
     display: flex;
     justify-content: center;
@@ -21,19 +28,7 @@
     color:rgb(63, 32, 197);
     font-size: 5rem;
 }
-.element {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100px;
-    width: 100px;
-    margin: 10px;
-    color: black;
-   }
+
 
   
 
-.white {fill:#FFFFFF}
-.gray {fill:#E0E0E0}
-.yellow {fill:#FFEB3B} 
-.blue{fill:#48A9D8}

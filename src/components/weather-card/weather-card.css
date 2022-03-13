@@ -1,9 +1,40 @@
+.weather_card_title{
+
+    margin-top: 30px;
+}
+.element {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+  
+    color: black;
+}
+
+.white {fill:#CCCCCC}
+.gray {fill:#B2B2B2}
+.yellow {fill:#FFEB3B} 
+.blue{fill:#48A9D8}
+.copos{fill:#E6E6E6}
+
+.small-icon-size{
+    width: 79px;
+    height: 77px;
+    margin-top: 14px;
+    margin-bottom: 14px;
+}
+.big-icon-size{
+ 
+    width: 168px;
+    height: 154px;
+}
+
 .weekly{
     display: flex;
 }
 
 .card_container{
-    margin-left: 122px;
+    margin-top: 30px;
     font-family: 'Roboto';
     font-style: normal;
     font-weight: 600;   

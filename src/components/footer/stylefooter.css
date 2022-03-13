@@ -2,17 +2,13 @@
 
 padding: 0px;
 margin-left: 10px;
-Width :1440px;
-Height :373px;
-bottom: 0;
-
+Height :173px;
 
 }
 
 .footer_container{
 
-Width :1440px;
-Height :373px;
+Height :173px;
 background-color: #808080;
 margin-left: 0px;
 display: flex;

@@ -1,7 +1,8 @@
-
 import "./index.css";
 import React, { useEffect, useState, useContext } from "react";
-
+import Header from "../../components/header/header";
+import Hero from "../../components/hero/hero";
+import Footer from "../../components/footer/footer";
 import Filter from "../../components/filter/filter";
 
 import MyGeolocation from "../../components/geolocation/geolocation";
@@ -16,6 +17,7 @@ import {
   getUrlPicture,
 } from "../../functions/functions";
 import { DataContext } from "../../context/data-context";
+import WeatherCardCOPY from "../../components/weather-card/weather-card-copy";
 
 function Home() {
   //en el provider tengo que cambiar la inicialización de la variable local
@@ -32,23 +34,20 @@ function Home() {
     setCamParameters,
     keyWords,
     setKeyWords,
+    urlImages,
+    setUrlImages,
+    controller,
+    setController,
   ] = useContext(DataContext);
-
-  const [urlImages, setUrlImages] = useState([]);
-  const [counter, setCounter] = useState(0);
-  const [forecastData, setForecastData] = useState([]);
-  const [controller, setController] = useState(true);
 
   useEffect(() => {
     if (city === "")
-
       geolocation(
         setLatitude,
         setLongitude,
         setCity,
         setWeatherData,
         setCamParameters,
-        setKeyWords,
         urlImages,
         setUrlImages
       );
@@ -64,19 +63,6 @@ function Home() {
       );
   }, [controller]);
 
-  const handlerOnsubmit = (e) => {
-    e.preventDefault();
-    const cityFilter = e.target.country.value.toLowerCase();
-    setCity(cityFilter);
-    console.log(city);
-    setUrlImages([]);
-    setController(!controller);
-  };
-
-  const handlerOnclick = (e) => {
-    geolocation();
-  };
-
   const getSunriseHour = new Date(
     (weatherData.sys?.sunrise + weatherData.timezone) * 1000
   );
@@ -91,12 +77,13 @@ function Home() {
     <React.Fragment>
       {/* <Filter onSubmit={handlerOnsubmit}></Filter> */}
       {/* <MyGeolocation onClick={handlerOnclick}></MyGeolocation> */}
-
-      <WeatherCard/>
-     
-
-
-      <BootstrapCarousel urls={urlImages}></BootstrapCarousel>
+      <Header></Header>
+      <Hero></Hero>
+      {/* 
+      <WeatherCard /> */}
+      <WeatherCardCOPY></WeatherCardCOPY>
+      {/* <BootstrapCarousel></BootstrapCarousel> */}
+      {/* <Footer></Footer> */}
     </React.Fragment>
   );
 }

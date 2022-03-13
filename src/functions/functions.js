@@ -1,6 +1,11 @@
 import camParams from "../data/data.json";
 
+//const KEY = "6ec1b7595153b67cc7506c3c5b5e8f64";
+const KEY = "8e70202785880756e6fd030a4675871d";
+//const KEY = "5752baf6201822d655e5282627caa619";
+
 export function generateRequest(i, urlImages, setUrlImages, key1, key2) {
+  console.log(urlImages);
   console.log(key1);
   console.log(key2);
   return new Promise((resolve, rejected) => {
@@ -33,9 +38,6 @@ export const fetchCoords = (
   urlImages,
   setUrlImages
 ) => {
-  const KEY = "6ec1b7595153b67cc7506c3c5b5e8f64";
-  //const KEY = "8e70202785880756e6fd030a4675871d";
-  //const KEY = "5752baf6201822d655e5282627caa619";
   fetch(
     `http://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&units=metric&appid=${KEY}`
   )
@@ -132,11 +134,10 @@ export function geolocation(
   setCity,
   setWeatherData,
   setCamParameters,
-  setKeyWords,
   urlImages,
   setUrlImages
 ) {
-  const KEY = "6ec1b7595153b67cc7506c3c5b5e8f64";
+  //const KEY = "6ec1b7595153b67cc7506c3c5b5e8f64";
   //const KEY = "8e70202785880756e6fd030a4675871d";
   //const KEY = "5752baf6201822d655e5282627caa619";
   navigator.geolocation.getCurrentPosition((geolocation) => {
@@ -162,8 +163,8 @@ export function geolocation(
   });
 }
 
-export const fetchCity = (setLatitude, setLongitude, city) => {
-  const KEY = "6ec1b7595153b67cc7506c3c5b5e8f64";
+export const fetchCity = (setLatitude, setLongitude, city, setCity) => {
+  //const KEY = "6ec1b7595153b67cc7506c3c5b5e8f64";
   //const KEY = "8e70202785880756e6fd030a4675871d";
   //const KEY = "5752baf6201822d655e5282627caa619";
 
@@ -172,7 +173,9 @@ export const fetchCity = (setLatitude, setLongitude, city) => {
   )
     .then((r) => r.json())
     .then((location) => {
+      console.log(location);
       setLatitude(location[0].lat);
       setLongitude(location[0].lon);
+      setCity(location[0].name);
     });
 };

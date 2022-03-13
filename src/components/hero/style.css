@@ -1,32 +1,15 @@
-.container_hero{
 
-padding: 0px;
-margin-left: 10px;
-Width :1440px;
-Height :170px;
-
-}
 
 .hero_container{
 
-Width :1440px;
-Height :170px;
+    height :170px;
 background-color: #FDDE00;
-display: flex;
-flex-direction: column;
-margin-left: 0px;
-align-items: flex-start
+
 
 }
-.textcontainer{
 
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-}
 .textcity{
 
-    margin-left: 122px;
     font-size: 49px;
     color: #ffffff;
     }
@@ -34,7 +17,6 @@ align-items: flex-start
 
     
 .textdate{
-    margin-left: 122px;
     font-size: 20px;
     color: #999999
     }

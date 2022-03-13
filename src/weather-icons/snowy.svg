@@ -6,7 +6,7 @@
   		          <circle id="XMLID_5_" class="white" cx="17.4" cy="17.3" r="9.3"/>
   		          <circle id="XMLID_1_" class="white" cx="34.5" cy="15.6" r="15.6"/>
   	          </g>
-              <circle class="white" cx="37" cy="43.5" r="3">
+              <circle class="copos" cx="37" cy="43.5" r="3">
                 <animateTransform attributeName="transform"
                   attributeType="XML"
                   dur="1.5s"
@@ -17,7 +17,7 @@
                   calcMode="linear">
                 </animateTransform>
               </circle>
-              <circle class="white" cx="27" cy="43.5" r="3">
+              <circle class="copos" cx="27" cy="43.5" r="3">
                 <animateTransform attributeName="transform"
                   attributeType="XML"
                   dur="1.5s"
@@ -28,7 +28,7 @@
                   calcMode="linear">
                 </animateTransform>
               </circle>
-              <circle class="white" cx="17" cy="43.5" r="3">
+              <circle class="copos" cx="17" cy="43.5" r="3">
                 <animateTransform attributeName="transform"
                   attributeType="XML"
                   dur="1.5s"

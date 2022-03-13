@@ -9,6 +9,8 @@ function DataContextProvider({ children }) {
   const [camParameters, setCamParameters] = useState([]);
   const [keyWord1, setKeyWord1] = useState("");
   const [keyWord2, setKeyWord2] = useState("");
+  const [urlImages, setUrlImages] = useState([]);
+  const [controller, setController] = useState(true);
 
   return (
     <DataContext.Provider
@@ -27,6 +29,10 @@ function DataContextProvider({ children }) {
         setKeyWord1,
         keyWord2,
         setKeyWord2,
+        urlImages,
+        setUrlImages,
+        controller,
+        setController,
       ]}
     >
       {children}

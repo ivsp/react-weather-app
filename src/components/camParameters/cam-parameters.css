@@ -1,12 +1,12 @@
 .params_container{
-    width: 586px;
+  
     height: 190px;
     background-color: #EDEDED;
     margin-top: 80px;
     font-family: 'Roboto';
 }
 .photo_cards{
-    width: 170px;   
+  
     color: #999999;
     font-size: 13px;
     font-style: normal;
@@ -19,7 +19,7 @@
 }
 
 .photo_cards-accessories{
-    width: 562px;   
+    
     color: #999999;
     font-size: 13px;
     font-style: normal;
@@ -41,9 +41,16 @@
     text-align: center;
 }
 
+.smallOptions{
+width: 32.8%;
+    margin-left: 6px;
+    margin-right: 6px;
+    }
 
-    
-
+.bigOptions{
+    margin-top: 12px;
+    margin-right: 12px;
+}
 
 
 

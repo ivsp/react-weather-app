@@ -1,42 +1,20 @@
-.container_grid{
-
-padding: 0px;
-margin-left: 10px;
-margin-top: 10px;
-Width :1440px;
-Height :56px;
-
-}
-
 .navbar_container{
 
-padding: 0px;
-Width :1440px;
-Height :56px;
 background-color: #1A1A1A;
-display: flex;
-flex-direction: row;
-justify-content: space-between;
-align-items: center;
+
 
 }
 
 .logo {
 
 height: 32px;
-margin-left: 181px;
+
 }
 
 
-.geolocation {
-
-margin-left: 330px;
-    
-}
-    
+   
 .textnikon{
-    width: 400px;
-    margin-left: 20px;
+   
     font-size: 20px;
     color: #ffffff
     }
