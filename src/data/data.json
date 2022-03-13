@@ -1,0 +1,710 @@
+{
+  "hora": [
+    {
+      "nubes": [
+        [
+          {
+            "diafragma": "f2,8",
+            "vel_obt": "v3",
+            "iso": "100",
+            "acc": "Trípode",
+            "keyWord": "night/cloudless"
+          },
+          {
+            "diafragma": "f11",
+            "vel_obt": "v20",
+            "iso": "400",
+            "acc": "Trípode",
+            "keyWord": "night/cloudless"
+          }
+        ],
+        [
+          {
+            "diafragma": "f8",
+            "vel_obt": "v20",
+            "iso": "100-400",
+            "acc": "Trípode",
+            "keyWord": "night/clouds"
+          }
+        ],
+        [
+          {
+            "diafragma": "f5,6",
+            "vel_obt": "v15",
+            "iso": "100-400",
+            "acc": "Trípode",
+            "keyWord": "night/clouds"
+          }
+        ],
+        [
+          {
+            "diafragma": "f2,8",
+            "vel_obt": "v5",
+            "iso": "100",
+            "acc": "Trípode",
+            "keyWord": "night/rainy"
+          },
+          {
+            "diafragma": "f11",
+            "vel_obt": "v5",
+            "iso": "400",
+            "acc": "Trípode",
+            "keyWord": "night/rainy"
+          }
+        ]
+      ]
+    },
+    {
+      "nubes": [
+        [
+          {
+            "diafragma": "f2,8",
+            "vel_obt": "v3",
+            "iso": "100",
+            "acc": "Trípode",
+            "keyWord": "night/cloudless"
+          },
+          {
+            "diafragma": "f11",
+            "vel_obt": "v20",
+            "iso": "400",
+            "acc": "Trípode",
+            "keyWord": "night/cloudless"
+          }
+        ],
+        [
+          {
+            "diafragma": "f8",
+            "vel_obt": "v20",
+            "iso": "100-400",
+            "acc": "Trípode",
+            "keyWord": "night/sunandclouds"
+          }
+        ],
+        [
+          {
+            "diafragma": "f5,6",
+            "vel_obt": "v15",
+            "iso": "100-400",
+            "acc": "Trípode",
+            "keyWord": "night/sunandclouds"
+          }
+        ],
+        [
+          {
+            "diafragma": "f2,8",
+            "vel_obt": "v5",
+            "iso": "100",
+            "acc": "Trípode",
+            "keyWord": "night/rainy"
+          },
+          {
+            "diafragma": "f11",
+            "vel_obt": "v5",
+            "iso": "400",
+            "acc": "Trípode",
+            "keyWord": "night/rainy"
+          }
+        ]
+      ]
+    },
+    {
+      "nubes": [
+        [
+          {
+            "diafragma": "f2,8",
+            "vel_obt": "v3",
+            "iso": "100",
+            "acc": "Trípode",
+            "keyWord": "closednight/moon"
+          },
+          {
+            "diafragma": "f11",
+            "vel_obt": "v20",
+            "iso": "400",
+            "acc": "Trípode",
+            "keyWord": "closednight/moon"
+          }
+        ],
+        [
+          {
+            "diafragma": "f8",
+            "vel_obt": "v20",
+            "iso": "100-400",
+            "acc": "Trípode",
+            "keyWord": "closednight/moon"
+          }
+        ],
+        [
+          {
+            "diafragma": "f5,6",
+            "vel_obt": "v15",
+            "iso": "100-400",
+            "acc": "Trípode",
+            "keyWord": "closednight/moon"
+          }
+        ],
+        [
+          {
+            "diafragma": "f2,8",
+            "vel_obt": "v5",
+            "iso": "100",
+            "acc": "Trípode",
+            "keyWord": "closednight/moon"
+          },
+          {
+            "diafragma": "f11",
+            "vel_obt": "v5",
+            "iso": "400",
+            "acc": "Trípode",
+            "keyWord": "closednight/moon"
+          }
+        ]
+      ]
+    },
+    {
+      "nubes": [
+        [
+          {
+            "diafragma": "f11",
+            "vel_obt": "v1/16",
+            "iso": "100",
+            "acc": "Trípode",
+            "keyWord": "sunrise/sunny"
+          },
+          {
+            "diafragma": "f11",
+            "vel_obt": "v1/60",
+            "iso": "400",
+            "acc": "Trípode",
+            "keyWord": "sunrise/sunny"
+          }
+        ],
+        [
+          {
+            "diafragma": "f8",
+            "vel_obt": "v1/20",
+            "iso": "100",
+            "acc": "Trípode",
+            "keyWord": "sunrise/sunandclouds"
+          },
+          {
+            "diafragma": "f8",
+            "vel_obt": "v1/60",
+            "iso": "400",
+            "acc": "Trípode",
+            "keyWord": "sunrise/sunandclouds"
+          }
+        ],
+        [
+          {
+            "diafragma": "f4",
+            "vel_obt": "v1/16",
+            "iso": "100",
+            "acc": "Trípode",
+            "keyWord": "sunrise/cloudy"
+          },
+          {
+            "diafragma": "f5,6",
+            "vel_obt": "v1/60",
+            "iso": "400",
+            "acc": "Trípode",
+            "keyWord": "sunrise/cloudy"
+          }
+        ],
+        [
+          {
+            "diafragma": "f1,4",
+            "vel_obt": "v1/8",
+            "iso": "100",
+            "acc": "Trípode",
+            "keyWord": "sunrise/rainy"
+          },
+          {
+            "diafragma": "f2,8",
+            "vel_obt": "v1/60",
+            "iso": "800",
+            "acc": "Trípode",
+            "keyWord": "sunrise/rainy"
+          }
+        ]
+      ]
+    },
+    {
+      "nubes": [
+        [
+          {
+            "diafragma": "f16",
+            "vel_obt": "v1/30",
+            "iso": "100",
+            "acc": "Filtro UV",
+            "keyWord": "morning/sunny"
+          },
+          {
+            "diafragma": "f2,8",
+            "vel_obt": "v1/100",
+            "iso": "200",
+            "acc": "Filtro UV",
+            "keyWord": "morning/sunny"
+          }
+        ],
+        [
+          {
+            "diafragma": "f11",
+            "vel_obt": "v1/20",
+            "iso": "100",
+            "acc": "Filtro UV",
+            "keyWord": "morning/sunandclouds"
+          },
+          {
+            "diafragma": "f8",
+            "vel_obt": "v1/100",
+            "iso": "200",
+            "acc": "Filtro UV",
+            "keyWord": "morning/sunandclouds"
+          }
+        ],
+        [
+          {
+            "diafragma": "f8",
+            "vel_obt": "v1/16",
+            "iso": "100",
+            "acc": "Filtro UV",
+            "keyWord": "morning/cloudy"
+          },
+          {
+            "diafragma": "f5,6",
+            "vel_obt": "v1/100",
+            "iso": "200",
+            "acc": "Filtro UV",
+            "keyWord": "morning/cloudy"
+          }
+        ],
+        [
+          {
+            "diafragma": "f2,8",
+            "vel_obt": "v1/11",
+            "iso": "100",
+            "acc": "Filtro UV",
+            "keyWord": "morning/rainy"
+          },
+          {
+            "diafragma": "f11",
+            "vel_obt": "v1/100",
+            "iso": "200",
+            "acc": "Filtro UV",
+            "keyWord": "morning/rainy"
+          }
+        ]
+      ]
+    },
+    {
+      "nubes": [
+        [
+          {
+            "diafragma": "f22",
+            "vel_obt": "v1/50",
+            "iso": "100",
+            "acc": "Filtro de densidad neutra",
+            "keyWord": "morning/sunny"
+          },
+          {
+            "diafragma": "f8",
+            "vel_obt": "v1/200",
+            "iso": "100",
+            "acc": "Filtro de densidad neutra",
+            "keyWord": "morning/sunny"
+          }
+        ],
+        [
+          {
+            "diafragma": "f16",
+            "vel_obt": "v1/60",
+            "iso": "100",
+            "acc": "Filtro de densidad neutra",
+            "keyWord": "morning/sunandclouds"
+          },
+          {
+            "diafragma": "f5,6",
+            "vel_obt": "v1/100",
+            "iso": "100",
+            "acc": "Filtro de densidad neutra",
+            "keyWord": "morning/sunandclouds"
+          }
+        ],
+        [
+          {
+            "diafragma": "f11",
+            "vel_obt": "v1/100",
+            "iso": "100",
+            "acc": "Filtro de densidad neutra",
+            "keyWord": "morning/cloudy"
+          },
+          {
+            "diafragma": "f4",
+            "vel_obt": "v1/125",
+            "iso": "100",
+            "acc": "Filtro de densidad neutra",
+            "keyWord": "morning/cloudy"
+          }
+        ],
+        [
+          {
+            "diafragma": "f8",
+            "vel_obt": "v1/80",
+            "iso": "100",
+            "acc": "Filtro de densidad neutra",
+            "keyWord": "morning/rainy"
+          },
+          {
+            "diafragma": "f2,8",
+            "vel_obt": "v1/125",
+            "iso": "100",
+            "acc": "Filtro de densidad neutra",
+            "keyWord": "morning/rainy"
+          }
+        ]
+      ]
+    },
+    {
+      "nubes": [
+        [
+          {
+            "diafragma": "f8",
+            "vel_obt": "v1/500",
+            "iso": "100",
+            "acc": "Filtro Polarizador",
+            "keyWord": "morning/sunny"
+          },
+          {
+            "diafragma": "f22",
+            "vel_obt": "v1/100",
+            "iso": "100",
+            "acc": "Filtro Polarizador",
+            "keyWord": "morning/sunny"
+          }
+        ],
+        [
+          {
+            "diafragma": "f11",
+            "vel_obt": "v1/250",
+            "iso": "100",
+            "acc": "Filtro Polarizador",
+            "keyWord": "morning/sunandclouds"
+          },
+          {
+            "diafragma": "f16",
+            "vel_obt": "v1/80",
+            "iso": "100",
+            "acc": "Filtro Polarizador",
+            "keyWord": "morning/sunandclouds"
+          }
+        ],
+        [
+          {
+            "diafragma": "f8",
+            "vel_obt": "v1/200",
+            "iso": "100",
+            "acc": "Filtro Polarizador",
+            "keyWord": "morning/cloudy"
+          },
+          {
+            "diafragma": "f11",
+            "vel_obt": "v125",
+            "iso": "100",
+            "acc": "Filtro Polarizador",
+            "keyWord": "morning/cloudy"
+          }
+        ],
+        [
+          {
+            "diafragma": "f2,8",
+            "vel_obt": "v1/125",
+            "iso": "100",
+            "acc": "Filtro Polarizador",
+            "keyWord": "morning/rainy"
+          },
+          {
+            "diafragma": "f16",
+            "vel_obt": "v1/60",
+            "iso": "100",
+            "acc": "Filtro Polarizador",
+            "keyWord": "morning/rainy"
+          }
+        ]
+      ]
+    },
+    {
+      "nubes": [
+        [
+          {
+            "diafragma": "f2,8",
+            "vel_obt": "v1/1000",
+            "iso": "100",
+            "acc": "Filtro UV-Densidad Neutra",
+            "keyWord": "afternoon/sunny"
+          },
+          {
+            "diafragma": "f22",
+            "vel_obt": "v1/80",
+            "iso": "100",
+            "acc": "Filtro UV-Densidad Neutra",
+            "keyWord": "afternoon/sunny"
+          }
+        ],
+        [
+          {
+            "diafragma": "f2,8",
+            "vel_obt": "v/500",
+            "iso": "100",
+            "acc": "Filtro UV-Densidad Neutra",
+            "keyWord": "afternoon/sunandclouds"
+          },
+          {
+            "diafragma": "f16",
+            "vel_obt": "v1/100",
+            "iso": "100",
+            "acc": "Filtro UV-Densidad Neutra",
+            "keyWord": "afternoon/sunandclouds"
+          }
+        ],
+        [
+          {
+            "diafragma": "f5,6",
+            "vel_obt": "v1/250",
+            "iso": "100",
+            "acc": "Filtro UV-Densidad Neutra",
+            "keyWord": "afternoon/cloudy"
+          },
+          {
+            "diafragma": "f11",
+            "vel_obt": "v1/80",
+            "iso": "100",
+            "acc": "Filtro UV-Densidad Neutra",
+            "keyWord": "afternoon/cloudy"
+          }
+        ],
+        [
+          {
+            "diafragma": "f2,8",
+            "vel_obt": "v1/200",
+            "iso": "100",
+            "acc": "Filtro UV-Densidad Neutra",
+            "keyWord": "afternoon/rainy"
+          },
+          {
+            "diafragma": "f8",
+            "vel_obt": "v1/50",
+            "iso": "100",
+            "acc": "Filtro UV-Densidad Neutra",
+            "keyWord": "afternoon/rainy"
+          }
+        ]
+      ]
+    },
+    {
+      "nubes": [
+        [
+          {
+            "diafragma": "f2,8",
+            "vel_obt": "v1/125",
+            "iso": "100-400",
+            "acc": "Trípode",
+            "keyWord": "sunset/sunny"
+          },
+          {
+            "diafragma": "f16",
+            "vel_obt": "v1/30",
+            "iso": "100-400",
+            "acc": "Trípode",
+            "keyWord": "sunset/sunny"
+          }
+        ],
+        [
+          {
+            "diafragma": "f2,8",
+            "vel_obt": "v1/100",
+            "iso": "100-400",
+            "acc": "Trípode",
+            "keyWord": "sunset/sunandclouds"
+          },
+          {
+            "diafragma": "f11",
+            "vel_obt": "v1/20",
+            "iso": "100-400",
+            "acc": "Trípode",
+            "keyWord": "sunset/sunandclouds"
+          }
+        ],
+        [
+          {
+            "diafragma": "f2,8",
+            "vel_obt": "v11/80",
+            "iso": "100-400",
+            "acc": "Trípode",
+            "keyWord": "sunset/cloudy"
+          },
+          {
+            "diafragma": "f8",
+            "vel_obt": "v1/16",
+            "iso": "100-400",
+            "acc": "Trípode",
+            "keyWord": "sunset/cloudy"
+          }
+        ],
+        [
+          {
+            "diafragma": "f2,8",
+            "vel_obt": "v1/50",
+            "iso": "100-400",
+            "acc": "Trípode",
+            "keyWord": "sunset/rainy"
+          },
+          {
+            "diafragma": "f5,6",
+            "vel_obt": "v1/16",
+            "iso": "100-400",
+            "acc": "Trípode",
+            "keyWord": "sunset/rainy"
+          }
+        ]
+      ]
+    },
+    {
+      "nubes": [
+        [
+          {
+            "diafragma": "f2,8",
+            "vel_obt": "v1/50",
+            "iso": "100-400",
+            "acc": "Trípode",
+            "keyWord": "godark/cloudless"
+          },
+          {
+            "diafragma": "f11",
+            "vel_obt": "v20",
+            "iso": "100-400",
+            "acc": "Trípode",
+            "keyWord": "godark/cloudless"
+          }
+        ],
+        [
+          {
+            "diafragma": "f4,5",
+            "vel_obt": "v1/50",
+            "iso": "100-400",
+            "acc": "Trípode",
+            "keyWord": "godark/sunandclouds"
+          },
+          {
+            "diafragma": "f8",
+            "vel_obt": "v30",
+            "iso": "100-400",
+            "acc": "Trípode",
+            "keyWord": "godark/sunandclouds"
+          }
+        ],
+        [
+          {
+            "diafragma": "f2,8",
+            "vel_obt": "v1/40",
+            "iso": "100-400",
+            "acc": "Trípode",
+            "keyWord": "godark/cloudy"
+          },
+          {
+            "diafragma": "f8",
+            "vel_obt": "v1/30",
+            "iso": "100-400",
+            "acc": "Trípode",
+            "keyWord": "godark/cloudy"
+          }
+        ],
+        [
+          {
+            "diafragma": "f2,8",
+            "vel_obt": "v1/40",
+            "iso": "100-400",
+            "acc": "Trípode",
+            "keyWord": "godark/rainy"
+          },
+          {
+            "diafragma": "f11",
+            "vel_obt": "v1/20",
+            "iso": "100-400",
+            "acc": "Trípode",
+            "keyWord": "godark/rainy"
+          }
+        ]
+      ]
+    },
+    {
+      "nubes": [
+        [
+          {
+            "diafragma": "f5,6",
+            "vel_obt": "v1/15",
+            "iso": "100",
+            "acc": "Trípode",
+            "keyWord": "night/cloudless"
+          },
+          {
+            "diafragma": "f22",
+            "vel_obt": "v4",
+            "iso": "400",
+            "acc": "Trípode",
+            "keyWord": "night/cloudless"
+          }
+        ],
+        [
+          {
+            "diafragma": "f2,8",
+            "vel_obt": "v1/15",
+            "iso": "100",
+            "acc": "Trípode",
+            "keyWord": "night/cloudless"
+          },
+          {
+            "diafragma": "f16",
+            "vel_obt": "v6",
+            "iso": "400",
+            "acc": "Trípode",
+            "keyWord": "night/cloudless"
+          }
+        ],
+        [
+          {
+            "diafragma": "f5,6",
+            "vel_obt": "v1/8",
+            "iso": "100",
+            "acc": "Trípode",
+            "keyWord": "night/cloudy"
+          },
+          {
+            "diafragma": "f11",
+            "vel_obt": "v6",
+            "iso": "400",
+            "acc": "Trípode",
+            "keyWord": "night/cloudy"
+          }
+        ],
+        [
+          {
+            "diafragma": "f2,8",
+            "vel_obt": "v1,5",
+            "iso": "100",
+            "acc": "Trípode",
+            "keyWord": "night/rainy"
+          },
+          {
+            "diafragma": "f16",
+            "vel_obt": "v7",
+            "iso": "400",
+            "acc": "Trípode",
+            "keyWord": "night/rainy"
+          }
+        ]
+      ]
+    }
+  ]
+}
