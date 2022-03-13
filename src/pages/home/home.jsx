@@ -1,14 +1,13 @@
 import "./index.css";
 import React, { useEffect, useState, useContext } from "react";
-import * as XLSX from "../../../node_modules/xlsx/xlsx.mjs";
+
 import Filter from "../../components/filter/filter";
-import CamParameters from "../../components/camParameters/cam-parameters";
 import MyGeolocation from "../../components/geolocation/geolocation";
 import BootstrapCarousel from "../../components/BootstrapCarousel/bootstrapCarousel";
 import WeatherCard from "../../components/weather-card/weather-card";
 import Card from "react-bootstrap/Card";
 import {
-  geolat,
+  geolocation,
   fetchCity,
   fetchCoords,
   generateRequest,
@@ -40,14 +39,15 @@ function Home() {
 
   useEffect(() => {
     if (city === "")
-      geolat(
+      geolocation(
         setLatitude,
         setLongitude,
         setCity,
         setWeatherData,
         setCamParameters,
-        keyWords,
-        setKeyWords
+        setKeyWords,
+        urlImages,
+        setUrlImages
       );
     if (city !== "") fetchCity(setLatitude, setLongitude, city);
     if (city !== "")
@@ -56,10 +56,9 @@ function Home() {
         longitude,
         setWeatherData,
         setCamParameters,
-        camParameters,
-        setKeyWords
+        urlImages,
+        setUrlImages
       );
-    getUrlPicture(urlImages, setUrlImages, keyWords[0], keyWords[1]);
   }, [controller]);
 
   const handlerOnsubmit = (e) => {
@@ -72,7 +71,7 @@ function Home() {
   };
 
   const handlerOnclick = (e) => {
-    geolat();
+    geolocation();
   };
 
   const getSunriseHour = new Date(
@@ -90,26 +89,7 @@ function Home() {
       <Filter onSubmit={handlerOnsubmit}></Filter>
       {/* <MyGeolocation onClick={handlerOnclick}></MyGeolocation> */}
 
-      <WeatherCard
-        degrees={
-          weatherData.main?.temp ? Math.round(weatherData.main.temp) : ""
-        }
-        sunrise={weatherData.sys?.sunrise ? sunriseHour : ""} //buscar datos en el nuevo fetch
-        sunset={weatherData.sys?.sunset ? sunsetHour : ""} //buscar datos en el nuevo fetch
-        weather={
-          weatherData.weather?.[0]?.main ? weatherData.weather[0].main : ""
-        }
-        forecast={
-          forecastData.daily
-            ? forecastData.daily?.map((c, i) => (
-                <Card style={{ width: "120px" }}>
-                  <Card.Text>{c.temp?.day}º</Card.Text>
-                </Card>
-              ))
-            : ""
-        }
-      ></WeatherCard>
-      <CamParameters></CamParameters>
+      <WeatherCard></WeatherCard>
 
       <BootstrapCarousel urls={urlImages}></BootstrapCarousel>
     </React.Fragment>
