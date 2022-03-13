@@ -39,6 +39,7 @@ function Home() {
 
   useEffect(() => {
     if (city === "")
+
       geolocation(
         setLatitude,
         setLongitude,
@@ -89,7 +90,9 @@ function Home() {
       <Filter onSubmit={handlerOnsubmit}></Filter>
       {/* <MyGeolocation onClick={handlerOnclick}></MyGeolocation> */}
 
-      <WeatherCard></WeatherCard>
+      <WeatherCard/>
+     
+
 
       <BootstrapCarousel urls={urlImages}></BootstrapCarousel>
     </React.Fragment>
