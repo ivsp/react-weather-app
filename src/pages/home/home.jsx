@@ -172,7 +172,7 @@ function Home() {
 
   return (
     <React.Fragment>
-      <Filter onSubmit={handlerOnsubmit}></Filter>
+      {/* <Filter onSubmit={handlerOnsubmit}></Filter> */}
       {/* <MyGeolocation onClick={handlerOnclick}></MyGeolocation> */}
 
       <WeatherCard

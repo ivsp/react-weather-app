@@ -1,0 +1,40 @@
+
+.filtercontainer{
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-right: 151px;
+}
+
+.navbutton {
+
+align-items: center;
+padding-left: 8px;
+width: 85px;
+height: 36px;
+background: #333333;
+border: 1px solid #FFFFFF;
+border-radius: 24px;
+margin-left: 10px;
+color: #FFFFFF;
+
+}
+
+.navinput{
+
+    background: #333333;
+    border-radius: 100px;
+    width: 429px;
+    height: 37px;
+    font-size: 16px;
+    color: #FFFFFF;
+    padding-left: 20px;
+    border: none;
+    opacity: 1;
+    
+    }
+
+
+
+
