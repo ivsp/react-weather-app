@@ -6,6 +6,7 @@ import Col from "react-bootstrap/Col";
 import CamParameters from "../../components/camParameters/cam-parameters";
 import "./weather-card.css"
 
+
 import { ReactComponent as Cloudy } from "../../weather-icons/cloudy.svg";
 import { ReactComponent as Rainy } from "../../weather-icons/rainy.svg";
 import { ReactComponent as Cloudysun } from "../../weather-icons/cloudy.sun.svg";
@@ -23,8 +24,8 @@ import { DataContext } from "../../context/data-context";
 
 
 
-function WeatherCard() {
 
+function WeatherCard() {
   const [
     latitude,
     setLatitude,
@@ -64,6 +65,7 @@ function WeatherCard() {
     } else if (icon === "Rain" || "Drizzle")
       return <Rainy />
 
+
   }
 
   function selectIconWeek(iconWeek) {
@@ -89,6 +91,7 @@ function WeatherCard() {
 
 
 
+
   const getSunriseHour = new Date(
     (weatherData?.current?.sunrise + weatherData.timezone_offset) * 1000
   );
@@ -98,7 +101,6 @@ function WeatherCard() {
     (weatherData.current?.sunset + weatherData.timezone_offset) * 1000
   );
   const sunsetHour = `${getSunsetHour.getHours()}:${getSunsetHour.getMinutes()}`;
-
 
 
   /* const date = new Date((props.weatherData.dt + 240000) * 1000);
@@ -194,6 +196,7 @@ function WeatherCard() {
           </Row>
 
         </Row>
+
 
 
 

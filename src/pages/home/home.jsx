@@ -1,13 +1,13 @@
 import "./index.css";
 import React, { useEffect, useState, useContext } from "react";
-/* import * as XLSX from "../../../node_modules/xlsx/xlsx.mjs"; */
+
 import Filter from "../../components/filter/filter";
 import MyGeolocation from "../../components/geolocation/geolocation";
 import BootstrapCarousel from "../../components/BootstrapCarousel/bootstrapCarousel";
 import WeatherCard from "../../components/weather-card/weather-card";
 import Card from "react-bootstrap/Card";
 import {
-  geolat,
+  geolocation,
   fetchCity,
   fetchCoords,
   generateRequest,
@@ -39,16 +39,16 @@ function Home() {
 
   useEffect(() => {
     if (city === "")
-      geolat(
-        latitude,
-        longitude,
+
+      geolocation(
         setLatitude,
         setLongitude,
         setCity,
         setWeatherData,
         setCamParameters,
-        keyWords,
-        setKeyWords
+        setKeyWords,
+        urlImages,
+        setUrlImages
       );
     if (city !== "") fetchCity(setLatitude, setLongitude, city);
     if (city !== "")
@@ -57,10 +57,9 @@ function Home() {
         longitude,
         setWeatherData,
         setCamParameters,
-        camParameters,
-        setKeyWords
+        urlImages,
+        setUrlImages
       );
-    getUrlPicture(urlImages, setUrlImages, keyWords[0], keyWords[1]);
   }, [controller]);
 
   const handlerOnsubmit = (e) => {
@@ -73,7 +72,7 @@ function Home() {
   };
 
   const handlerOnclick = (e) => {
-    geolat();
+    geolocation();
   };
 
   const getSunriseHour = new Date(
@@ -93,6 +92,7 @@ function Home() {
 
       <WeatherCard/>
      
+
 
       <BootstrapCarousel urls={urlImages}></BootstrapCarousel>
     </React.Fragment>
