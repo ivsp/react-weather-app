@@ -1,7 +1,9 @@
+
 import "./index.css";
 import React, { useEffect, useState, useContext } from "react";
 
 import Filter from "../../components/filter/filter";
+
 import MyGeolocation from "../../components/geolocation/geolocation";
 import BootstrapCarousel from "../../components/BootstrapCarousel/bootstrapCarousel";
 import WeatherCard from "../../components/weather-card/weather-card";
@@ -87,7 +89,7 @@ function Home() {
 
   return (
     <React.Fragment>
-      <Filter onSubmit={handlerOnsubmit}></Filter>
+      {/* <Filter onSubmit={handlerOnsubmit}></Filter> */}
       {/* <MyGeolocation onClick={handlerOnclick}></MyGeolocation> */}
 
       <WeatherCard/>
