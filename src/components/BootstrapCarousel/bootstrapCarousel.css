@@ -1,0 +1,28 @@
+.carousel_style{
+    width: 366px;
+    height: 257px;
+    position: absolute;  
+    left: 122px;
+    top: 981px;
+    background: #CECECE;
+    border-radius: 11px;
+}
+
+.examples_title{ 
+    width: 302px;
+    height: 30px;
+    left: 122px;
+    top: 911px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 25px;
+    line-height: 120%;
+    color: #1A1A1A;
+}
+
+.photo_container{
+   
+    display: flex;
+    justify-content: center;
+}

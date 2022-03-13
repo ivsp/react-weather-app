@@ -1,94 +1,11 @@
 import camParams from "../data/data.json";
 
-export function geolat(
-  setLatitude,
-  setLongitude,
-  setCity,
-  setWeatherData,
-  setCamParameters,
-  keyWords,
-  setKeyWords
-) {
-  const KEY = "6ec1b7595153b67cc7506c3c5b5e8f64";
-  //const KEY = "8e70202785880756e6fd030a4675871d";
-  //const KEY = "5752baf6201822d655e5282627caa619";
-  navigator.geolocation.getCurrentPosition((geolocation) => {
-    setLatitude(geolocation.coords.latitude.toString());
-    setLongitude(geolocation.coords.longitude.toString());
-    fetch(
-      `http://api.openweathermap.org/data/2.5/weather?lat=${geolocation.coords.latitude.toString()}&lon=${geolocation.coords.longitude.toString()}&appid=${KEY}`
-    )
-      .then((r) => r.json())
-      .then((data) => {
-        console.log(data);
-        setWeatherData(data);
-        setCity(data.name);
-        console.log(data.dt);
-        console.log(data.timezone);
-        const getHour = new Date((data.dt + data.timezone - 3600) * 1000);
-        console.log(getHour);
-        const hour = Math.floor(getHour.getHours() / 2);
-        console.log(hour);
-        console.log(data.clouds.all);
-        if (data.clouds.all <= 25) {
-          setCamParameters(camParams.hora[hour].nubes[0]);
-          const arr = [];
-          camParams.hora[hour].nubes[0][0].keyWord.split("/").map((k) => {
-            console.log("en el 0");
-            console.log(k);
-            arr.push(k);
-          });
-          console.log(arr);
-          setKeyWords(arr);
-
-          console.log(arr);
-        } else if (data.clouds.all > 25 && data.clouds.all <= 50) {
-          setCamParameters(camParams.hora[hour].nubes[1]);
-          camParams.hora[hour].nubes[1][0].keyWord.split("/").forEach((k) => {
-            console.log("en el 1");
-            keyWords.push(k);
-            setKeyWords([...keyWords]);
-          });
-        } else if (data.clouds.all > 50 && data.clouds.all <= 75) {
-          setCamParameters(camParams.hora[hour].nubes[2]);
-          camParams.hora[hour].nubes[2][0].keyWord.split("/").forEach((k) => {
-            console.log("en el 2");
-            keyWords.push(k);
-            setKeyWords([...keyWords]);
-          });
-        } else if (data.clouds.all > 75 && data.clouds.all <= 100) {
-          setCamParameters(camParams.hora[hour].nubes[3]);
-          camParams.hora[hour].nubes[3][0].keyWord.split("/").forEach((k) => {
-            console.log("en el 3");
-            keyWords.push(k);
-            setKeyWords([...keyWords]);
-          });
-        }
-      });
-  });
-}
-
-export const fetchCity = (setLatitude, setLongitude, city) => {
-  const KEY = "6ec1b7595153b67cc7506c3c5b5e8f64";
-  //const KEY = "8e70202785880756e6fd030a4675871d";
-  //const KEY = "5752baf6201822d655e5282627caa619";
-
-  fetch(
-    `http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=${KEY}`
-  )
-    .then((r) => r.json())
-    .then((location) => {
-      setLatitude(location[0].lat);
-      setLongitude(location[0].lon);
-    });
-};
 
 export const fetchCoords = (
   latitude,
   longitude,
   setWeatherData,
   setCamParameters,
-  camParameters,
   setKeyWords
 ) => {
   const KEY = "6ec1b7595153b67cc7506c3c5b5e8f64";
@@ -138,9 +55,102 @@ export const fetchCoords = (
           setKeyWords(camParams.hora[hour].nubes[3][0].keyWord.split("/"));
         }
       }
-      console.log(camParameters);
+
     });
 };
+
+export function geolat(
+  latitude,
+  longitude,
+  setLatitude,
+  setLongitude,
+  setCity,
+  setWeatherData,
+  setCamParameters,
+  keyWords,
+  setKeyWords
+) {
+  const KEY = "6ec1b7595153b67cc7506c3c5b5e8f64";
+  //const KEY = "8e70202785880756e6fd030a4675871d";
+  //const KEY = "5752baf6201822d655e5282627caa619";
+  navigator.geolocation.getCurrentPosition((geolocation) => {
+    setLatitude(geolocation.coords.latitude.toString());
+    setLongitude(geolocation.coords.longitude.toString());
+    fetch(
+      `http://api.openweathermap.org/data/2.5/weather?lat=${geolocation.coords.latitude.toString()}&lon=${geolocation.coords.longitude.toString()}&appid=${KEY}`
+    )
+      .then((r) => r.json())
+      .then((data) => {
+        console.log(data);
+       setCity(data.name);
+        console.log(data.dt);
+        console.log(data.timezone);
+        const getHour = new Date((data.dt + data.timezone - 3600) * 1000);
+        console.log(getHour);
+        const hour = Math.floor(getHour.getHours() / 2);
+        console.log(hour);
+        console.log(data.clouds.all);
+        if (data.clouds.all <= 25) {
+          setCamParameters(camParams.hora[hour].nubes[0]);
+          const arr = [];
+          camParams.hora[hour].nubes[0][0].keyWord.split("/").map((k) => {
+            console.log("en el 0");
+            console.log(k);
+            arr.push(k);
+          });
+          console.log(arr);
+          setKeyWords(arr);
+
+          console.log(arr);
+        } else if (data.clouds.all > 25 && data.clouds.all <= 50) {
+          setCamParameters(camParams.hora[hour].nubes[1]);
+          camParams.hora[hour].nubes[1][0].keyWord.split("/").forEach((k) => {
+            console.log("en el 1");
+            keyWords.push(k);
+            setKeyWords([...keyWords]);
+          });
+        } else if (data.clouds.all > 50 && data.clouds.all <= 75) {
+          setCamParameters(camParams.hora[hour].nubes[2]);
+          camParams.hora[hour].nubes[2][0].keyWord.split("/").forEach((k) => {
+            console.log("en el 2");
+            keyWords.push(k);
+            setKeyWords([...keyWords]);
+          });
+        } else if (data.clouds.all > 75 && data.clouds.all <= 100) {
+          setCamParameters(camParams.hora[hour].nubes[3]);
+          camParams.hora[hour].nubes[3][0].keyWord.split("/").forEach((k) => {
+            console.log("en el 3");
+            keyWords.push(k);
+            setKeyWords([...keyWords]);
+          });
+        }
+        fetchCoords(
+          latitude,
+          longitude,
+          setWeatherData,
+          setCamParameters,
+          setKeyWords
+        ) 
+
+      });
+  });
+}
+
+export const fetchCity = (setLatitude, setLongitude, city) => {
+  const KEY = "6ec1b7595153b67cc7506c3c5b5e8f64";
+  //const KEY = "8e70202785880756e6fd030a4675871d";
+  //const KEY = "5752baf6201822d655e5282627caa619";
+
+  fetch(
+    `http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=${KEY}`
+  )
+    .then((r) => r.json())
+    .then((location) => {
+      setLatitude(location[0].lat);
+      setLongitude(location[0].lon);
+    });
+};
+
 
 export function generateRequest(i, urlImages, setUrlImages, key1, key2) {
   console.log(key1);
