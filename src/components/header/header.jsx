@@ -63,7 +63,8 @@ function Header() {
       setWeatherData,
       setCamParameters,
       urlImages,
-      setUrlImages
+      setUrlImages,
+      unit
     );
   };
 
@@ -72,23 +73,29 @@ function Header() {
       <Row>
         <Navbar>
           <Col
-          md={{ span: 6, offset: 1 }}
-          lg={{ span: 6, offset: 1 }}
-          xl={{ span: 6, offset: 1 }}
+            md={{ span: 6, offset: 1 }}
+            lg={{ span: 6, offset: 1 }}
+            xl={{ span: 6, offset: 1 }}
           >
             <Image src={nikon}></Image>
-            <Card.Text className="d-inline-flex" style={{ color: "white", "font-size":"20px", "margin-left":"40px" }}>
-
+            <Card.Text
+              className="d-inline-flex"
+              style={{
+                color: "white",
+                "font-size": "20px",
+                "margin-left": "40px",
+              }}
+            >
               Nikon Weather Advisor
             </Card.Text>
           </Col>
 
-          <Col  className="inputcont"
-        md={{ span: 4, offset: 0 }}
-        lg={{ span: 4, offset: 0 }}
-        xl={{ span: 4, offset: 0 }}
-         >
-
+          <Col
+            className="inputcont"
+            md={{ span: 4, offset: 0 }}
+            lg={{ span: 4, offset: 0 }}
+            xl={{ span: 4, offset: 0 }}
+          >
             <Filter
               handlerOnclick={handlerOnclick}
               handlerOnsubmit={handlerOnsubmit}

@@ -11,10 +11,9 @@ function CamParameters() {
     useContext(DataContext);
 
   return (
-    <Row style={{"font-Family":"roboto"}}>
+    <Row style={{ "font-Family": "roboto" }}>
       <Card.Title
         style={{
-          
           "margin-top": "47px",
           "font-size": "25px",
           "font-weight": "600",
@@ -80,7 +79,7 @@ function CamParameters() {
                     style={{ height: "80px" }}
                   >
                     Velocidad:
-                    <div className="parameters">{pam.vel_obt}</div>
+                    <div className="parameters">{pam.vel_obt}"</div>
                   </Card>
                 </Col>
 

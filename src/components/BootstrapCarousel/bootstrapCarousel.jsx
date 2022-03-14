@@ -1,6 +1,6 @@
 import "./bootstrapCarousel.css";
 import React from "react";
-import Carousel from "react-bootstrap/Carousel";
+//import Carousel from "react-bootstrap/Carousel";
 import Spinner from "react-bootstrap/Spinner";
 import Card from "react-bootstrap/Card";
 import { DataContext } from "../../context/data-context";
@@ -34,7 +34,7 @@ function BootstrapCarousel() {
                     style={{ width: "24.5%" }}
                   >
                     <Card className="border-0 ">
-                      <Card.Img variant="top" src={url} />
+                      <Card.Img className="radious" variant="top" src={url} />
                     </Card>
                   </Col>
                 );

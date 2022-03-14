@@ -2,8 +2,7 @@ import "./index.css";
 import React, { useEffect, useContext } from "react";
 import Header from "../../components/header/header";
 import Hero from "../../components/hero/hero";
-
-import Footer from "../../components/footer/footer";
+import Footer from "../../components/footernew/footernew";
 
 import BootstrapCarousel from "../../components/BootstrapCarousel/bootstrapCarousel";
 import WeatherCard from "../../components/weather-card/weather-card";
