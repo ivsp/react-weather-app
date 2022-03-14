@@ -1,21 +1,12 @@
 import "./index.css";
-import React, { useEffect, useState, useContext } from "react";
+import React, { useEffect, useContext } from "react";
 import Header from "../../components/header/header";
 import Hero from "../../components/hero/hero";
 import Footer from "../../components/footer/footer";
-import Filter from "../../components/filter/filter";
 
-import MyGeolocation from "../../components/geolocation/geolocation";
 import BootstrapCarousel from "../../components/BootstrapCarousel/bootstrapCarousel";
 import WeatherCard from "../../components/weather-card/weather-card";
-import Card from "react-bootstrap/Card";
-import {
-  geolocation,
-  fetchCity,
-  fetchCoords,
-  generateRequest,
-  getUrlPicture,
-} from "../../functions/functions";
+import { geolocation, fetchCity, fetchCoords } from "../../functions/functions";
 import { DataContext } from "../../context/data-context";
 import WeatherCardCOPY from "../../components/weather-card/weather-card-copy";
 
@@ -28,16 +19,20 @@ function Home() {
     setLongitude,
     city,
     setCity,
-    weatherData,
+    ,
     setWeatherData,
-    camParameters,
+    ,
     setCamParameters,
-    keyWords,
-    setKeyWords,
+    ,
+    ,
+    ,
+    ,
     urlImages,
     setUrlImages,
     controller,
-    setController,
+    ,
+    unit,
+    ,
   ] = useContext(DataContext);
 
   useEffect(() => {
@@ -49,7 +44,8 @@ function Home() {
         setWeatherData,
         setCamParameters,
         urlImages,
-        setUrlImages
+        setUrlImages,
+        unit
       );
     if (city !== "") fetchCity(setLatitude, setLongitude, city);
     if (city !== "")
@@ -59,19 +55,10 @@ function Home() {
         setWeatherData,
         setCamParameters,
         urlImages,
-        setUrlImages
+        setUrlImages,
+        unit
       );
-  }, [controller]);
-
-  const getSunriseHour = new Date(
-    (weatherData.sys?.sunrise + weatherData.timezone) * 1000
-  );
-  const sunriseHour = `${getSunriseHour.getHours()}:${getSunriseHour.getMinutes()}`;
-
-  const getSunsetHour = new Date(
-    (weatherData.sys?.sunset + weatherData.timezone) * 1000
-  );
-  const sunsetHour = `${getSunsetHour.getHours()}:${getSunsetHour.getMinutes()}`;
+  }, [controller, unit]);
 
   return (
     <React.Fragment>
@@ -79,10 +66,10 @@ function Home() {
       {/* <MyGeolocation onClick={handlerOnclick}></MyGeolocation> */}
       <Header></Header>
       <Hero></Hero>
-      {/* 
+      {/*
       <WeatherCard /> */}
       <WeatherCardCOPY></WeatherCardCOPY>
-      {/* <BootstrapCarousel></BootstrapCarousel> */}
+      <BootstrapCarousel></BootstrapCarousel>
       {/* <Footer></Footer> */}
     </React.Fragment>
   );

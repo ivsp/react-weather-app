@@ -59,3 +59,25 @@
     height: 300px;
 }
 
+
+
+#custom-switch{
+    outline: none;
+    box-shadow: none;
+}
+
+
+  
+#custom-switch:checked {
+    border-color: #CCCCCC !important;
+    background-color: #FDDE00 !important;
+  }
+  
+
+  
+  #custom-switch:not(:checked) {
+    border-color: #CCCCCC !important;
+  }
+
+
+  

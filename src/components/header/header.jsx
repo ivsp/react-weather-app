@@ -4,7 +4,6 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Image from "react-bootstrap/Image";
-import MyGeolocation from "../geolocation/geolocation";
 import Filter from "../filter/filter";
 import nikon from "./nikon.jpg";
 import React from "react";
@@ -20,7 +19,7 @@ function Header() {
     setLatitude,
     longitude,
     setLongitude,
-    city,
+    ,
     setCity,
     ,
     setWeatherData,
@@ -28,10 +27,14 @@ function Header() {
     setCamParameters,
     ,
     ,
+    ,
+    ,
     urlImages,
     setUrlImages,
     controller,
     setController,
+    unit,
+    ,
   ] = useContext(DataContext);
 
   const handlerOnsubmit = (e) => {
@@ -45,7 +48,8 @@ function Header() {
       setWeatherData,
       setCamParameters,
       urlImages,
-      setUrlImages
+      setUrlImages,
+      unit
     );
 
     setController(!controller);
@@ -64,19 +68,19 @@ function Header() {
   };
 
   return (
-    <Container className="navbar_container" fluid>
+    <Container className="navbar_container" fluid style={{ width: "100%" }}>
       <Row>
         <Navbar>
           <Col md={{ span: 1, offset: 1 }} className="justify-content-lg-end">
             <Image src={nikon} className="logo"></Image>
           </Col>
-          <Col md={3} xxl={6}>
+          <Col md={5} xl={5}>
             <Card.Text style={{ color: "white" }} className="navtext">
               Nikon Weather Advisor
             </Card.Text>
           </Col>
 
-          <Col md="auto" className="justify-content-md-end">
+          <Col md={5} lg={5} xl={5} className="justify-content-end">
             <Filter
               handlerOnclick={handlerOnclick}
               handlerOnsubmit={handlerOnsubmit}
