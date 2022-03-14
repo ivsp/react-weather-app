@@ -19,7 +19,8 @@ function BootstrapCarousel() {
             lg={{ span: "auto", offset: 1 }}
             xl={{ span: "auto", offset: 1 }}
           >
-            <Card.Title>Imágenes de ejemplo</Card.Title>
+            <Card.Title 
+            className="cards_title">Imágenes de ejemplo</Card.Title>
           </Col>
         </Row>
         <Row className="cardImage ">

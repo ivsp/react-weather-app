@@ -131,6 +131,7 @@ function WeatherCardCOPY() {
                         "font-family":"Roboto",
                         "font-size": "25px",
                         "font-weight": "600",
+                        "margin-bottom": "42px"
                       }}
                     >
                       El tiempo de hoy
@@ -138,7 +139,7 @@ function WeatherCardCOPY() {
                   </Col>
                 </Row>
                 <Row
-                  className="pt-3"
+                  className="d-flex align-items-center justify-content-between"
                   style={{
                     "font-size": "10px",
                     "font-weight":"600",
@@ -164,22 +165,26 @@ function WeatherCardCOPY() {
                     }}
                   >
                     <Row
+                      className="d-flex align-items-center"
                       style={{
                         "font-size": "25px",
                       }}
                     >
-                      <Col xl="auto" lg="auto" md="auto">
-                        <Card.Text>ºC</Card.Text>
+                      <Col
+                      
+                      xl="auto" lg="auto" md="auto">
+                        <Card.Text style={{"font-size":"13px"}}>ºC</Card.Text>
                       </Col>
                       <Col className="switch p-0" xl="auto" lg="auto" md="auto">
                         <Form.Check
+                          className="toggle"
                           onChange={changeTemp}
                           type="switch"
                           id="custom-switch"
                         />
                       </Col>
                       <Col className="p-0" xl="auto" lg="auto" md="auto">
-                        <Card.Text>ºF</Card.Text>
+                        <Card.Text style={{"font-size":"13px"}}>ºF</Card.Text>
                       </Col>
                     </Row>
                   </Col>
@@ -212,7 +217,7 @@ function WeatherCardCOPY() {
                         className="text-center"
                         style={{
                           color: " #666666",
-                          "font-size": "13px",
+                          "font-size": "16px",
                           "margin-top": "10px",
                         }}
                       >
@@ -235,7 +240,7 @@ function WeatherCardCOPY() {
                         className="text-center"
                         style={{
                           color: " #666666",
-                          "font-size": "13px",
+                          "font-size": "16px",
                           "margin-top": "10px",
                         }}
                       >
@@ -266,7 +271,7 @@ function WeatherCardCOPY() {
                 "font-weight":"600",
                 "font-size": "20px",
                 "margin-top": "59px",
-                "margin-bottom": "53px",
+                "margin-bottom": "24px",
               }}
             >
               Pronóstico

@@ -36,3 +36,9 @@
 .radious{
     border-radius: 11px;
 }
+
+.cards_title{
+    font-size: 25px;
+    font-family: "Roboto";
+    font-weight: 600;
+}
