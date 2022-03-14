@@ -11,12 +11,12 @@ function CamParameters() {
     useContext(DataContext);
 
   return (
-    <Row>
+    <Row style={{"font-Family":"roboto"}}>
       <Card.Title
         style={{
+          
           "margin-top": "47px",
           "font-size": "25px",
-
           "font-weight": "600",
         }}
       >

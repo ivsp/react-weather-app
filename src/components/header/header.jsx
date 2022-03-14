@@ -71,16 +71,24 @@ function Header() {
     <Container className="navbar_container" fluid style={{ width: "100%" }}>
       <Row>
         <Navbar>
-          <Col md={{ span: 1, offset: 1 }} className="justify-content-lg-end">
-            <Image src={nikon} className="logo"></Image>
-          </Col>
-          <Col md={5} xl={5}>
-            <Card.Text style={{ color: "white" }} className="navtext">
+          <Col
+          md={{ span: 6, offset: 1 }}
+          lg={{ span: 6, offset: 1 }}
+          xl={{ span: 6, offset: 1 }}
+          >
+            <Image src={nikon}></Image>
+            <Card.Text className="d-inline-flex" style={{ color: "white", "font-size":"20px", "margin-left":"40px" }}>
+
               Nikon Weather Advisor
             </Card.Text>
           </Col>
 
-          <Col md={5} lg={5} xl={5} className="justify-content-end">
+          <Col  className="inputcont"
+        md={{ span: 4, offset: 0 }}
+        lg={{ span: 4, offset: 0 }}
+        xl={{ span: 4, offset: 0 }}
+         >
+
             <Filter
               handlerOnclick={handlerOnclick}
               handlerOnsubmit={handlerOnsubmit}

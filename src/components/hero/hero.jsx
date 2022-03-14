@@ -57,14 +57,14 @@ function Hero() {
     <Container className="hero_container" fluid style={{ width: "100%" }}>
       <Row>
         <Col
-          md={{ span: 3, offset: 1 }}
-          lg={{ span: 3, offset: 1 }}
-          xl={{ span: 3, offset: 1 }}
+          md={{ span: 9, offset: 1 }}
+          lg={{ span: 9, offset: 1 }}
+          xl={{ span: 9, offset: 1 }}
         >
           <Card.Text
             className="textcity"
             style={{
-              "margin-top": "36px",
+              "margin-top": "36px", "font-weight":"600"
             }}
           >
             {city}

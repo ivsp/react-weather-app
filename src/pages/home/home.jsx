@@ -2,6 +2,7 @@ import "./index.css";
 import React, { useEffect, useContext } from "react";
 import Header from "../../components/header/header";
 import Hero from "../../components/hero/hero";
+
 import Footer from "../../components/footer/footer";
 
 import BootstrapCarousel from "../../components/BootstrapCarousel/bootstrapCarousel";
@@ -69,8 +70,9 @@ function Home() {
       {/*
       <WeatherCard /> */}
       <WeatherCardCOPY></WeatherCardCOPY>
+
       <BootstrapCarousel></BootstrapCarousel>
-      {/* <Footer></Footer> */}
+      <Footer></Footer>
     </React.Fragment>
   );
 }
