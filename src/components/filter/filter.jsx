@@ -4,6 +4,7 @@ import MyGeolocation from "../geolocation/geolocation";
 function Filter({ handlerOnsubmit, handlerOnclick }) {
   return (
     <form onSubmit={handlerOnsubmit} class="filtercontainer">
+      <div className="continput">
       <input
         className="navinput"
         name="country"
@@ -11,6 +12,7 @@ function Filter({ handlerOnsubmit, handlerOnclick }) {
         type="text"
       />
       <MyGeolocation onClick={handlerOnclick}></MyGeolocation>
+      </div>
       <button className="navbutton" type="submit">
         Search
       </button>

@@ -1,4 +1,8 @@
 
+@font-face {
+    font-family: 'Roboto';
+    src: url(./fuente-oswald/Oswald-Regular.ttf);
+}
 
 .hero_container{
 
@@ -12,6 +16,7 @@ background-color: #FDDE00;
 
     font-size: 49px;
     color: #ffffff;
+    font-family: "roboto";
     }
         
 

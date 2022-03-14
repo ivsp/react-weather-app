@@ -82,7 +82,7 @@ function Hero() {
           <Card.Text
             className="textcity"
             style={{
-              "margin-top": "36px",
+              "margin-top": "36px", "font-weight":"600"
             }}
           >
             {city}

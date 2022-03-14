@@ -139,6 +139,7 @@ function WeatherCardCOPY() {
                   <Col xl={12} lg={12} md={12}>
                     <Card.Text
                       style={{
+                        "font-family":"Roboto",
                         "font-size": "25px",
                         "font-weight": "600",
                       }}
@@ -151,6 +152,7 @@ function WeatherCardCOPY() {
                   className="pt-3"
                   style={{
                     "font-size": "10px",
+                    "font-weight":"600",
                   }}
                 >
                   <Col xl={4} lg={4} md={4}>
@@ -226,7 +228,7 @@ function WeatherCardCOPY() {
                     </Row>
                     <Row>
                       <Card.Text
-                        style={{ "font-size": "20px" }}
+                        style={{ "font-size": "20px", "font-weight":"400"}}
                         className="text-center"
                       >
                         {weatherData.current?.sunrise ? sunriseHour : ""}
@@ -250,7 +252,7 @@ function WeatherCardCOPY() {
                     <Row>
                       {" "}
                       <Card.Text
-                        style={{ "font-size": "20px" }}
+                         style={{ "font-size": "20px", "font-weight":"400"}}
                         className="text-center"
                       >
                         {weatherData.current?.sunset ? sunsetHour : ""}
@@ -267,7 +269,8 @@ function WeatherCardCOPY() {
           <Row>
             <Card.Text
               style={{
-                "font-family": "Roboto",
+                "font-size": "20px",
+                "font-weight":"600",
                 "font-size": "20px",
                 "margin-top": "59px",
                 "margin-bottom": "53px",
@@ -276,7 +279,7 @@ function WeatherCardCOPY() {
               Pronóstico
             </Card.Text>
           </Row>
-          <Row className="weekly">
+          <Row className="weekly" style={{"font-weight":"600"}}>
             {weatherData?.daily
               ? weatherData?.daily?.map((c, i) => {
                   console.log(weatherData.daily);
@@ -287,7 +290,7 @@ function WeatherCardCOPY() {
                     return (
                       <Col
                         className="  text-center"
-                        style={{ width: "73px", height: "73px" }}
+                        style={{ width: "73px"}}
                       >
                         <Card className="border-0 ">
                           <Row>

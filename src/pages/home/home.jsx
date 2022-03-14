@@ -2,7 +2,7 @@ import "./index.css";
 import React, { useEffect, useState, useContext } from "react";
 import Header from "../../components/header/header";
 import Hero from "../../components/hero/hero";
-import Footer from "../../components/footer/footer";
+import Footer from "../../components/footernew/footernew.jsx";
 import Filter from "../../components/filter/filter";
 
 import MyGeolocation from "../../components/geolocation/geolocation";
@@ -83,7 +83,7 @@ function Home() {
       <WeatherCard /> */}
       <WeatherCardCOPY></WeatherCardCOPY>
       {/* <BootstrapCarousel></BootstrapCarousel> */}
-      {/* <Footer></Footer> */}
+      <Footer></Footer>
     </React.Fragment>
   );
 }
