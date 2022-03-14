@@ -11,6 +11,7 @@ function DataContextProvider({ children }) {
   const [keyWord2, setKeyWord2] = useState("");
   const [urlImages, setUrlImages] = useState([]);
   const [controller, setController] = useState(true);
+  const [unit, setUnit] = useState("metric");
 
   return (
     <DataContext.Provider
@@ -33,6 +34,8 @@ function DataContextProvider({ children }) {
         setUrlImages,
         controller,
         setController,
+        unit,
+        setUnit,
       ]}
     >
       {children}

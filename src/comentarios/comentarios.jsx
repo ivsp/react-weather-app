@@ -53,3 +53,24 @@
 //     setKeyWords([...keyWords]);
 //   });
 // }
+
+{
+  /* 
+      <div className="photo_container" style={{ width: "100%" }}>
+        <p className="examples_title">Imágenes de ejemplo:</p>
+        <Carousel className="carousel_style">
+          {urlImages ? (
+            urlImages.map((url, i) => {
+              return (
+                <Carousel.Item key={i}>
+                  <img src={url} alt="First slide" />
+                </Carousel.Item>
+              );
+            })
+          ) : (
+            <p>Esperando</p>
+          )}
+        </Carousel>
+      </div>
+    */
+}

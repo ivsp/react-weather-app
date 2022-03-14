@@ -7,7 +7,8 @@ import Col from "react-bootstrap/Col";
 import "./cam-parameters.css";
 
 function CamParameters() {
-  const [, , , , , , , , camParameters, ,] = useContext(DataContext);
+  const [, , , , , , , , camParameters, , , , , , , , , , , ,] =
+    useContext(DataContext);
 
   return (
     <Row style={{"font-Family":"roboto"}}>

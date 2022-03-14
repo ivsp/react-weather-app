@@ -1,5 +1,4 @@
 import "./style.css";
-import Navbar from "react-bootstrap/Navbar";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
@@ -10,24 +9,7 @@ import { DataContext } from "../../context/data-context";
 import { useContext } from "react";
 
 function Hero() {
-  const [
-    latitude,
-    setLatitude,
-    longitude,
-    setLongitude,
-    city,
-    setCity,
-    weatherData,
-    setWeatherData,
-    camParameters,
-    setCamParameters,
-    keyWords,
-    setKeyWords,
-    urlImages,
-    setUrlImages,
-    controller,
-    setController,
-  ] = useContext(DataContext);
+  const [, , , , city, , , , , , , , , , , ,] = useContext(DataContext);
 
   function getCurrentWeekDay() {
     const date = new Date();
@@ -72,7 +54,7 @@ function Hero() {
 
   //console.log(date);
   return (
-    <Container className="hero_container" fluid>
+    <Container className="hero_container" fluid style={{ width: "100%" }}>
       <Row>
         <Col
           md={{ span: 9, offset: 1 }}

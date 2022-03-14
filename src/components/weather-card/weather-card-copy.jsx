@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Card from "react-bootstrap/Card";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
@@ -6,47 +6,41 @@ import Col from "react-bootstrap/Col";
 import CamParameters from "../../components/camParameters/cam-parameters";
 import Form from "react-bootstrap/Form";
 import "./weather-card.css";
-
 import { ReactComponent as Cloudy } from "../../weather-icons/cloudy.svg";
 import { ReactComponent as Rainy } from "../../weather-icons/rainy.svg";
 import { ReactComponent as Cloudysun } from "../../weather-icons/cloudy.sun.svg";
-import { ReactComponent as Cloudymoon } from "../../weather-icons/cloudymoon.svg";
-import { ReactComponent as Cloudylighting } from "../../weather-icons/cloudy.lightning.svg";
+//import { ReactComponent as Cloudymoon } from "../../weather-icons/cloudymoon.svg";
+//import { ReactComponent as Cloudylighting } from "../../weather-icons/cloudy.lightning.svg";
 import { ReactComponent as Cloudyrainlighting } from "../../weather-icons/cloudy.rain.lightning.svg";
 import { ReactComponent as Sunny } from "../../weather-icons/sunny.svg";
-import { ReactComponent as Clearnight } from "../../weather-icons/clearnight.svg";
-import { ReactComponent as Sunnywind } from "../../weather-icons/sunny.wind.svg";
+//import { ReactComponent as Clearnight } from "../../weather-icons/clearnight.svg";
+//import { ReactComponent as Sunnywind } from "../../weather-icons/sunny.wind.svg";
 import { ReactComponent as Snowy } from "../../weather-icons/snowy.svg";
 import { useContext } from "react";
 import { DataContext } from "../../context/data-context";
 
 function WeatherCardCOPY() {
-  const [
-    latitude,
-    setLatitude,
-    longitude,
-    setLongitude,
-    city,
-    setCity,
-    weatherData,
-    setWeatherData,
-    camParameters,
-    setCamParameters,
-    keyWord1,
-    setKeyWord1,
-    keyWord2,
-    setKeyWord2,
-  ] = useContext(DataContext);
+  const [, , , , , , weatherData, , , , , , , , , , , , unit, setUnit] =
+    useContext(DataContext);
 
   const icon = weatherData?.current?.weather?.[0]?.main;
   const iconDescription = weatherData?.current?.weather?.[0]?.description;
 
-  const iconWeek = weatherData?.daily?.weather?.[0]?.main;
-  const iconWeekDescription = weatherData?.daily?.weather?.[0]?.description;
+  function getCurrentDay(i) {
+    const date = new Date();
+    const day = date.getDay() + i * 1;
+    if (day === 0) return "Domingo";
+    else if (day === 1) return "Lunes";
+    else if (day === 2) return "Martes";
+    else if (day === 3) return "Miércoles";
+    else if (day === 4) return "Jueves";
+    else if (day === 5) return "Viernes";
+    else if (day === 6) return "Sábado";
+  }
 
+  //console.log(currentDay);
   function selectIcon(icon) {
     //haremos un swich para elegir el icono
-    console.log(weatherData);
     if (icon === "Clouds") {
       if (iconDescription === "few clouds")
         return <Cloudysun className="big-icon-size" />;
@@ -105,22 +99,17 @@ function WeatherCardCOPY() {
       ? `${getDtHour.getHours()}:0${getDtHour.getMinutes()}`
       : `${getDtHour.getHours()}:${getDtHour.getMinutes()}`;
 
-  /* const date = new Date((props.weatherData.dt + 240000) * 1000);
-  const daydate = date.getDay()
-  console.log(daydate)
-  console.log(date) */
+  const changeTemp = (e) => {
+    e.preventDefault();
+    if (unit === "metric") {
+      setUnit("imperial");
+    } else {
+      setUnit("metric");
+    }
+  };
 
-  // const pronosticDaysToPrint = [];
-
-  // function selectPronosticIcon() {
-  //   const pronostic5days = weatherData?.daily?.map((d, i) => {
-  //     if (i !== 0 || i !== 6 || i !== 7) pronosticDaysToPrint.push(d);
-  //   });
-  // }
-  // selectPronosticIcon();
-  // console.log(pronosticDaysToPrint);
   return (
-    <Container fluid>
+    <Container fluid style={{ width: "100%" }}>
       <Row>
         <Col
           xl={{ span: 4, offset: 1 }}
@@ -180,13 +169,17 @@ function WeatherCardCOPY() {
                       }}
                     >
                       <Col xl="auto" lg="auto" md="auto">
-                        <Card.Text>ºF</Card.Text>
+                        <Card.Text>ºC</Card.Text>
                       </Col>
                       <Col className="switch p-0" xl="auto" lg="auto" md="auto">
-                        <Form.Check type="switch" id="custom-switch" />
+                        <Form.Check
+                          onChange={changeTemp}
+                          type="switch"
+                          id="custom-switch"
+                        />
                       </Col>
                       <Col className="p-0" xl="auto" lg="auto" md="auto">
-                        <Card.Text>ºC</Card.Text>
+                        <Card.Text>ºF</Card.Text>
                       </Col>
                     </Row>
                   </Col>
@@ -207,7 +200,7 @@ function WeatherCardCOPY() {
                       {weatherData.current?.temp
                         ? Math.round(weatherData.current.temp)
                         : ""}
-                      º C
+                      {unit === "metric" ? "º C" : "ºF"}
                     </Card.Text>
                     <Card style={{ height: "1px" }} />
                   </Col>
@@ -282,19 +275,19 @@ function WeatherCardCOPY() {
           <Row className="weekly" style={{"font-weight":"600"}}>
             {weatherData?.daily
               ? weatherData?.daily?.map((c, i) => {
-                  console.log(weatherData.daily);
                   if (i === 1 || i === 2 || i === 3 || i === 4 || i === 5) {
-                    console.log(weatherData.daily[i]);
-                    console.log(i);
-
                     return (
                       <Col
                         className="  text-center"
                         style={{ width: "73px"}}
                       >
+
                         <Card className="border-0 ">
                           <Row>
-                            <Card.Text>{Math.round(c.temp?.day)}º</Card.Text>
+                            <Card.Text>
+                              {Math.round(c.temp?.day)}{" "}
+                              {unit === "metric" ? "ºC" : "ºF"}
+                            </Card.Text>
                           </Row>
                           <Row>
                             <Card.Text className="m-0 p-0">
@@ -305,7 +298,7 @@ function WeatherCardCOPY() {
                             </Card.Text>
                           </Row>
                           <Row>
-                            <Card.Text>Día de la semana</Card.Text>
+                            <Card.Text>{getCurrentDay(i)}</Card.Text>
                           </Row>
                         </Card>
                       </Col>
