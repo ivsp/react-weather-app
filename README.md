@@ -1,6 +1,5 @@
 # Nikon Weather Advisor
-![](https://raw.githubusercontent.com/ivsp/react-weather-app
-/develop/src/assets/images/weather-advisor.JPG)
+![](https://raw.githubusercontent.com/ivsp/react-weather-app/develop/src/assets/images/weather-advisor.JPG)
 
 
 ## Description
