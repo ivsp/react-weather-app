@@ -1,6 +1,6 @@
 # Nikon Weather Advisor
 ![](https://raw.githubusercontent.com/ivsp/react-weather-app
-/main/src/assets/images/weatheradvisor.JPG)
+/develop/src/assets/images/weather-advisor.JPG)
 
 
 ## Description
@@ -13,3 +13,6 @@ The website obtains the user's current location, and has a search engine to sear
 ## Deployment
 
 You can se the web deployement in: [https://nikonweatheradvisor.netlify.app/]
+
+**NOTE:** You must enable geolocation in your browser to use the website.
+
