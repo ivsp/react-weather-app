@@ -8,7 +8,8 @@ import camParams from "../data/data.json";
 //const KEY = "421d3db42b53a303670834edcf199f36";
 //const KEY = "43013539d14cda8f25df9a2abcb667ef";
 //const KEY = 'f1b6848e6d21c29387db9dfc01521f41';
-/* const KEY = "98f6c8d333d49274b039113dbaf772d3"; */
+/* const KEY = "98f6c8d333d49274b039113dbaf772d3";
+const KEY = '5f1cb1e1cf10a4c1659350593594eb22' */
 const KEY = "12a6ffefbdd5b2a104785f8d46484904";
 
 export function generateRequest(i, urlImages, setUrlImages, key1, key2) {
